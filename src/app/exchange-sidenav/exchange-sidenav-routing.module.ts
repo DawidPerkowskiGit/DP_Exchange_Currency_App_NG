@@ -8,15 +8,15 @@ import { ExchangeSidenavComponent } from './exchange-sidenav.component';
 
 
 const routes: Routes = [
-  { path: '',
+  { path: 'exchange',
   component: ExchangeSidenavComponent,
 children: [
   {
-    path: 'exchange/latest',
+    path: 'latest',
     component: TableComponent,
   },
   {
-    path: 'exchange/chart',
+    path: 'chart',
     component: ChartComponent,
   }
 ]
