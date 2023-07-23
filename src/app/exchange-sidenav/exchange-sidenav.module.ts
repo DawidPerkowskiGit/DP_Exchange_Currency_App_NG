@@ -1,8 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExchangeSidenavComponent } from './exchange-sidenav.component';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
-import {MatIconModule} from '@angular/material/icon'; 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -12,7 +15,12 @@ import {MatIconModule} from '@angular/material/icon';
   imports: [
     CommonModule,
     MatSidenavModule,
-    MatIconModule
+    MatToolbarModule,
+    MatListModule,
+    RouterModule,
+    MatIconModule,
   ]
 })
-export class ExchangeSidenavModule { }
+export class ExchangeSidenavModule { 
+
+}

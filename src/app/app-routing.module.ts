@@ -22,7 +22,7 @@ const routes: Routes = [
     path: 'exchange',
     component: ExchangeSidenavComponent,
   },
-  { path: '**', redirectTo: '' },
+  // { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
