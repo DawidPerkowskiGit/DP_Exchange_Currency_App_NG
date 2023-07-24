@@ -6,6 +6,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button'; 
+import {MatTabsModule} from '@angular/material/tabs'; 
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatListModule,
     RouterModule,
     MatIconModule,
+    MatButtonModule,
+    MatTabsModule,
   ]
 })
 export class ExchangeSidenavModule { 

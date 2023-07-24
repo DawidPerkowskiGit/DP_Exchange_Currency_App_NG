@@ -4,6 +4,7 @@ import { TableComponent } from './table/table.component';
 import { ChartComponent } from './chart/chart.component';
 import { FrontPageNavComponent } from '../front-page-nav/front-page-nav.component';
 import { ExchangeSidenavComponent } from './exchange-sidenav.component';
+import { MainpageComponent } from './mainpage/mainpage.component';
 
 
 
@@ -18,6 +19,10 @@ children: [
   {
     path: 'chart',
     component: ChartComponent,
+  },
+  {
+    path: '',
+    component: MainpageComponent,
   }
 ]
 },

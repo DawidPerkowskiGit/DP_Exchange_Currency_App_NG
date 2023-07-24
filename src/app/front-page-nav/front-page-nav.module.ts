@@ -4,6 +4,7 @@ import { FrontPageNavComponent } from './front-page-nav.component';
 import { RouterModule } from '@angular/router';
 import {MatTabsModule} from '@angular/material/tabs'; 
 import { ExchangeSidenavModule } from '../exchange-sidenav/exchange-sidenav.module';
+// import {MatSidenavModule} from '@angular/material/sidenav'; 
 
 
 
@@ -15,7 +16,8 @@ import { ExchangeSidenavModule } from '../exchange-sidenav/exchange-sidenav.modu
     CommonModule,
     RouterModule,
     MatTabsModule,
-    ExchangeSidenavModule
+    ExchangeSidenavModule,
+    // MatSidenavModule
   ]
 })
 export class FrontPageNavModule { }

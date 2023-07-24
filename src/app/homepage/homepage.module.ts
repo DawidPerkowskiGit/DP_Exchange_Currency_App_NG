@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomepageComponent } from './homepage.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 
@@ -9,7 +10,8 @@ import { HomepageComponent } from './homepage.component';
     HomepageComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatSidenavModule
   ]
 })
 export class HomepageModule { }

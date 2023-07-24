@@ -22,7 +22,7 @@ mat-sidenav {
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: top;
 
   font-size: 2rem;
   color: lightgray;
@@ -40,4 +40,14 @@ mat-sidenav-container {
     align-items: center;
 
     color: palegoldenrod;
+}
+
+.menu_element {
+  background-color: rgb(102, 35, 144);
+  // color: rgb(102, 35, 144);
+}
+
+.sidenav-link {
+  font-size: 1.5rem;
+  color: black !important;
 }
