@@ -12,6 +12,7 @@ import { FrontPageNavModule } from './front-page-nav/front-page-nav.module';
 import { FrontPageNavComponent } from './front-page-nav/front-page-nav.component';
 import { ExchangeSidenavRoutingModule } from './exchange-sidenav/exchange-sidenav-routing.module';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatListModule,
     MatIconModule,
     // MatSidenavModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

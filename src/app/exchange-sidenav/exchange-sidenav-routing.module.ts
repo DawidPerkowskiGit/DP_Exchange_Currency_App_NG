@@ -5,6 +5,7 @@ import { ChartComponent } from './chart/chart.component';
 import { FrontPageNavComponent } from '../front-page-nav/front-page-nav.component';
 import { ExchangeSidenavComponent } from './exchange-sidenav.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
+import { CurrencyListComponent } from './currency-list/currency-list.component';
 
 
 
@@ -19,6 +20,10 @@ children: [
   {
     path: 'chart',
     component: ChartComponent,
+  },
+  {
+    path: 'currencies',
+    component: CurrencyListComponent,
   },
   {
     path: '',
