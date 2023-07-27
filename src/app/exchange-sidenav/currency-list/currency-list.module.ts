@@ -7,11 +7,10 @@ import { JsonDataImportModule } from 'src/app/json-data-import/json-data-import.
 
 @NgModule({
   declarations: [
-    CurrencyListComponent
+    CurrencyListComponent,
   ],
   imports: [
     CommonModule,
-    JsonDataImportModule
   ]
 })
 export class CurrencyListModule { }

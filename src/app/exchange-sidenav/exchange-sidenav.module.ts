@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatTabsModule} from '@angular/material/tabs'; 
+import { CurrencyListModule } from './currency-list/currency-list.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatIconModule,
     MatButtonModule,
     MatTabsModule,
+    CurrencyListModule,
   ]
 })
 export class ExchangeSidenavModule { 
