@@ -1,9 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { inject } from '@angular/core/testing';
 import {} from './currencies-interface'
-import { RequestBodyComponent } from './request-body/request-body.component';
 import { ListCurrencyResponse } from './currencies-interface';
-import { RequestDataComponent } from './request-data/request-data.component';
 import { HttpClient } from '@angular/common/http';
 import { log } from 'console';
 
@@ -14,7 +12,6 @@ import { log } from 'console';
 })
 export class JsonDataImportComponent implements OnInit {
 
-  public requestDataComponent: RequestBodyComponent = new RequestBodyComponent();
   public currenciesBody!: ListCurrencyResponse;
   public currenciesJson: string = "";
   public jsonDataResult: any;

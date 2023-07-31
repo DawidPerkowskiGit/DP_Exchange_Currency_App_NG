@@ -10,11 +10,15 @@ import { JsonDataImportService } from 'src/app/json-data-import/json-data-import
 })
 export class CurrencyListComponent implements OnInit, AfterViewInit {
 
-  constructor( ) { }
+  receivedvalue: any;
+  constructor() { }
   
   ngAfterViewInit(): void {
     console.log(this.apiService);
-  }
+    this.apiService.data.subscribe(data=>{
+      this.receivedvalue=data;
+  });
+}
 
   @ViewChild(JsonDataImportService, {static: true}) apiService!: JsonDataImportService;
 
@@ -26,5 +30,4 @@ export class CurrencyListComponent implements OnInit, AfterViewInit {
     // this.jsonData = this.jsonDataImportService.getRequestData();
     // console.log("------- data from currency list on init :: ",this.jsonData);
   }
-  
 }

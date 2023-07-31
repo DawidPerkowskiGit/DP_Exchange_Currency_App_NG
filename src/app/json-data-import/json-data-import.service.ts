@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { shareReplay } from 'rxjs';
+import { Subject, shareReplay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +8,17 @@ import { shareReplay } from 'rxjs';
 export class JsonDataImportService implements OnInit{
   public jsonDataResult: string = '';
 
+  data:Subject<string> = new Subject<string>();
+  
+
+
   constructor(private http: HttpClient) {
+
+  }
+
+  submit(val:string){
+      
+    this.data.next(val);
   }
 
   // ngOnInit(): void {
@@ -50,5 +60,6 @@ export class JsonDataImportService implements OnInit{
 
   ngOnInit(): void {
     this.jsonDataResult = "modified data by ngOnInit()";
+    this.submit("data to submit");
   }
 }
