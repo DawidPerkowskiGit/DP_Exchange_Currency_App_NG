@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { JsonDataImportService } from '../json-data-import.service';
 import { Subject, catchError, of, shareReplay } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 

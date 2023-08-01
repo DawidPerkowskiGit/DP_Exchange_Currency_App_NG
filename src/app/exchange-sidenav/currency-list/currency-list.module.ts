@@ -11,6 +11,7 @@ import { JsonDataImportModule } from 'src/app/json-data-import/json-data-import.
   ],
   imports: [
     CommonModule,
+    JsonDataImportModule
   ]
 })
 export class CurrencyListModule { }

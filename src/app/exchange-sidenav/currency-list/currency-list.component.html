@@ -1,7 +1,23 @@
-<p>currency-list works!</p>
+<app-json-data-import></app-json-data-import>
+<!-- <div *ngIf="currencyList$">
+    Currency List:
+    {{currencyList$}}
+    <div class="container">
+    <h2>Available currency list</h2>          
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Currency ISO name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let currency of currencyList$.currencies">
+          <td>{{currency.id}}</td>
+          <td>{{currency.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
 
-<!-- {{jsonDataImportService.jsonDataResult}} -->
-
-<!-- {{currencies$ | async}} -->
-<!-- <app-api-service></app-api-service> -->
-{{apiService}}

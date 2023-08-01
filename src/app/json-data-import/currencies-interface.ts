@@ -4,7 +4,7 @@ export interface SingleCurrencyObject {
 }
 
 export interface ListCurrencyResponse {
-    currencies: SingleCurrencyObject[];
+    currencies: SingleCurrencyObject;
 }
 
 export interface SingleExchangeObject {

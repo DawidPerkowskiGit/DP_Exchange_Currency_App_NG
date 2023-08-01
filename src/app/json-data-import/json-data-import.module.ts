@@ -12,6 +12,9 @@ import { ApiServiceComponent } from './api-service/api-service.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    JsonDataImportComponent,
   ]
 })
 export class JsonDataImportModule { }
