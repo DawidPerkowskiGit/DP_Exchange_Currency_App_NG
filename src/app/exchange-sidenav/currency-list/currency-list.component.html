@@ -1,4 +1,12 @@
 <app-json-data-import></app-json-data-import>
+<!-- <div *ngIf="!(posts | async) === null">
+  {{posts | async | json}}
+</div>
+<div *ngIf="posts">
+  {{posts | async}}
+</div> -->
+{{currencyList | async | json}}
+{{currencyList$ | async | json}}
 <!-- <div *ngIf="currencyList$">
     Currency List:
     {{currencyList$}}
@@ -20,4 +28,3 @@
     </table>
   </div>
 </div> -->
-

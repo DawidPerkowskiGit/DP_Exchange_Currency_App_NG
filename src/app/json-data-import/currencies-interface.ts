@@ -1,11 +1,18 @@
 export interface SingleCurrencyObject {
-    id: number;
-    name: string;
+    id?: number;
+    name?: string;
 }
 
 export interface ListCurrencyResponse {
-    currencies: SingleCurrencyObject;
+    currencies?: SingleCurrencyObject;
 }
+
+// export interface ListCurrencyResponse {
+//     currencies: {
+//         id: number;
+//         name: string;
+//     };
+// }
 
 export interface SingleExchangeObject {
 
