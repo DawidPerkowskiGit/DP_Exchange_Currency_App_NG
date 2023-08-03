@@ -1,7 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { shareReplay } from "rxjs";
+import { Observable, shareReplay } from "rxjs";
 import { ListCurrencyResponse } from "./currencies-interface";
+import { enviroment } from "../enviroments/enviroments";
 
 @Injectable({
     providedIn: 'root',
@@ -11,8 +12,10 @@ import { ListCurrencyResponse } from "./currencies-interface";
     constructor(private http: HttpClient) { }
 
     
-  getCurrencies$ = this.http.get<ListCurrencyResponse>('http://localhost:8080/api/currencies').pipe(
-    shareReplay(1)
-  );
+    getCurrencies(): Observable<ListCurrencyResponse> {
+      return this.http.get<ListCurrencyResponse>(
+        enviroment.apiEndpoint + '/currencies'
+      );
+    }
 
   }

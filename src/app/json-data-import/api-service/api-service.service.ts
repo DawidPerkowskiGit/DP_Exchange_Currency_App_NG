@@ -10,7 +10,7 @@ export class ApiServiceService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getAllPosts(): Observable<ListCurrencyResponse[]> {
+  getCurrencies(): Observable<ListCurrencyResponse[]> {
     return this.httpClient.get<ListCurrencyResponse[]>('http://localhost:8080/api/currencies');
   }
 }

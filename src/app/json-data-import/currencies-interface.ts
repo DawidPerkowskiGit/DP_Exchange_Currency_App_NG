@@ -1,10 +1,10 @@
-export interface SingleCurrencyObject {
-    id?: number;
-    name?: string;
+export class SingleCurrencyObject {
+    id!: number;
+    name!: string;
 }
 
-export interface ListCurrencyResponse {
-    currencies?: SingleCurrencyObject;
+export class ListCurrencyResponse {
+    currencies!: SingleCurrencyObject[];
 }
 
 // export interface ListCurrencyResponse {

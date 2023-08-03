@@ -5,13 +5,26 @@
 <div *ngIf="posts">
   {{posts | async}}
 </div> -->
-{{currencyList | async | json}}
-{{currencyList$ | async | json}}
-<!-- <div *ngIf="currencyList$">
-    Currency List:
-    {{currencyList$}}
+<!-- {{currencyList | async | json}} -->
+<!-- {{currencyList$.currencies | json}} -->
+<!-- {{currencyList}} -->
+
+<!-- {{currencyList[0]}}
+{{currencyList[30]}}
+
+<div *ngFor="let currency of currencyList | keyvalue">
+          {{currency.key}}
+          {{currency.value}}
+</div> -->
+
+<div *ngIf="currencyList">
     <div class="container">
-    <h2>Available currency list</h2>          
+    <div>
+    <!-- <h1>Available currency list</h1>      -->
+    <div class="panel panel-default">
+          <div class="panel-heading">Available currency list</div>  
+    </div>
+   
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -20,11 +33,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let currency of currencyList$.currencies">
-          <td>{{currency.id}}</td>
-          <td>{{currency.name}}</td>
+        <tr *ngFor="let currency of currencyList | keyvalue;  let i = index;">
+          <td>{{i + 1}}</td>
+          <td>{{currency.value}}</td>
         </tr>
       </tbody>
     </table>
   </div>
-</div> -->
+</div>
