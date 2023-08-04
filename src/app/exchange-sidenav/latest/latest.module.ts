@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ApiServiceComponent } from './api-service.component';
+import { LatestComponent } from './latest.component';
 
 
 
 @NgModule({
   declarations: [
-    // ApiServiceComponent
+    LatestComponent
   ],
   imports: [
-    CommonModule,
-    
+    CommonModule
   ]
 })
-export class ApiServiceModule { }
+export class LatestModule { }

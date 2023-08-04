@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, shareReplay } from "rxjs";
 import { ListCurrencyResponse } from "./currencies-interface";
-import { enviroment } from "../enviroments/enviroments";
+import { enviroment } from "../enviroments/enviroments.prod";
 
 @Injectable({
     providedIn: 'root',

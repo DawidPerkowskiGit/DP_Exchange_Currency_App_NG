@@ -1,17 +1,11 @@
 import {
   Component,
   OnInit,
-  AfterViewInit,
-  ViewChild,
-  SkipSelf,
-  OnDestroy,
 } from '@angular/core';
-import { ApiServiceService } from 'src/app/json-data-import/api-service/api-service.service';
 import {
   ListCurrencyResponse,
   SingleCurrencyObject,
 } from 'src/app/json-data-import/currencies-interface';
-import { JsonDataImportComponent } from 'src/app/json-data-import/json-data-import.component';
 import { JsonDataImportService } from 'src/app/json-data-import/json-data-import.service';
 @Component({
   selector: 'app-currency-list',
