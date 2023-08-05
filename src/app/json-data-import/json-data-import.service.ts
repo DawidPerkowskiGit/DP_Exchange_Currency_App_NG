@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, shareReplay } from "rxjs";
 import { ListCurrencyResponse } from "./currencies-interface";
-import { enviroment } from "../enviroments/enviroments.prod";
+import { environment } from "src/environments/environment.prod"
 
 @Injectable({
     providedIn: 'root',
@@ -14,7 +14,7 @@ import { enviroment } from "../enviroments/enviroments.prod";
     
     getCurrencies(): Observable<ListCurrencyResponse> {
       return this.http.get<ListCurrencyResponse>(
-        enviroment.apiEndpoint + '/currencies'
+        environment.apiEndpoint + '/currencies'
       );
     }
 

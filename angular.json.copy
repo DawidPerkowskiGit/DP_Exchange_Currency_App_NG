@@ -18,8 +18,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          // "builder": "@angular-devkit/build-angular:browser",
-          "builder": "@nx/angular:webpack-browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/currency-exchange-app-ng",
             "index": "src/index.html",
