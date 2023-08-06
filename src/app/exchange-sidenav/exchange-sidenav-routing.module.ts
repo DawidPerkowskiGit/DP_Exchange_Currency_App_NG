@@ -6,6 +6,7 @@ import { FrontPageNavComponent } from '../front-page-nav/front-page-nav.componen
 import { ExchangeSidenavComponent } from './exchange-sidenav.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { CurrencyListComponent } from './currency-list/currency-list.component';
+import { LatestComponent } from './latest/latest.component';
 
 
 
@@ -15,7 +16,7 @@ const routes: Routes = [
 children: [
   {
     path: 'latest',
-    component: TableComponent,
+    component: LatestComponent,
   },
   {
     path: 'chart',

@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { inject } from '@angular/core/testing';
-import {} from './currencies-interface';
+import { SingleRatesObject } from './currencies-interface';
 import { ListCurrencyResponse } from './currencies-interface';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { log } from 'console';
@@ -23,4 +23,5 @@ export class JsonDataImportComponent implements OnInit {
       'http://localhost:8080/api/currencies'
     );
   }
+
 }
