@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LatestComponent } from './latest.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -9,7 +10,7 @@ import { LatestComponent } from './latest.component';
     LatestComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class LatestModule { }

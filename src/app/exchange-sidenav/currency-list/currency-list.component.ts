@@ -4,9 +4,11 @@ import {
 } from '@angular/core';
 import {
   ListCurrencyResponse,
-  SingleCurrencyObject,
 } from 'src/app/json-data-import/currencies-interface';
 import { JsonDataImportService } from 'src/app/json-data-import/json-data-import.service';
+import { CurrencyObjectsHardCopyService } from 'src/app/tools/currency-objects-hard-copy.service';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 @Component({
   selector: 'app-currency-list',
   templateUrl: './currency-list.component.html',
@@ -14,18 +16,19 @@ import { JsonDataImportService } from 'src/app/json-data-import/json-data-import
 })
 export class CurrencyListComponent implements OnInit {
 
-  currencyList: SingleCurrencyObject[] = [];
+  currencyList!: ListCurrencyResponse;
 
-  constructor(private jsonDataImportService: JsonDataImportService) {}
+  constructor(private jsonDataImportService: JsonDataImportService,
+    private copyService: CurrencyObjectsHardCopyService) {}
 
   ngOnInit(): void {
     console.log(this.currencyList);
     this.jsonDataImportService
       .getCurrencies()
       .subscribe((data: ListCurrencyResponse) => {
-        this.currencyList = data.currencies;
-        // this.currencyList = Array.from(Object.values(data.currencies));
+        this.currencyList = this.copyService.copy(data);
         console.log(this.currencyList);
       });
+
   }
 }

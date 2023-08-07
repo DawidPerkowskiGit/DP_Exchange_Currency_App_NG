@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { JsonDataImportService } from 'src/app/json-data-import/json-data-import.service';
 import {
-  ExchangesObject,
-  SingleRatesObject
-} from 'src/app/json-data-import/currencies-interface';
-import { ExchangesObjectCopyingService } from 'src/app/json-data-import/exchange-objects-hard-copy';
+  ExchangesObject} from 'src/app/json-data-import/currencies-interface';
+import { ExchangesObjectCopyingService } from 'src/app/tools/exchange-objects-hard-copy.service';
+import { Observable, Subject, map } from 'rxjs';
 
 @Component({
   selector: 'app-latest',
@@ -16,25 +15,23 @@ export class LatestComponent implements OnInit {
   exchange!: ExchangesObject;
 
   constructor(private jsonDataImportService: JsonDataImportService,
-    private exchangesObjectCopyingService: ExchangesObjectCopyingService) {}
+    private copyService: ExchangesObjectCopyingService) {}
 
   ngOnInit(): void {
     this.jsonDataImportService
       .getLatestExchange()
       .subscribe((data: ExchangesObject) => {
-        // this.exchange = data;
         console.log(data);
-        this.exchange = this.exchangesObjectCopyingService.copy(data);
-
-        this.prepareData();
+        this.exchange = this.copyService.copy(data);
+        this.removeBaseCurrency();
         console.log(this.exchange);
       });
   }
 
-  prepareData() {
-    if (this.exchange.rates.has(this.exchange.base)) {
-      this.exchange.rates.delete(this.exchange.base)
+  removeBaseCurrency() {
+      if (this.exchange.rates.has(this.exchange.base)) {
+        this.exchange.rates.delete(this.exchange.base)
+    }
   }
 }
 
-}

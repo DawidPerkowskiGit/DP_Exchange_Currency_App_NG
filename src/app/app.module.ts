@@ -13,6 +13,8 @@ import { FrontPageNavComponent } from './front-page-nav/front-page-nav.component
 import { ExchangeSidenavRoutingModule } from './exchange-sidenav/exchange-sidenav-routing.module';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { LatestModule } from './exchange-sidenav/latest/latest.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,6 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    // FrontPageNavModule,
     AppRoutingModule,
     ExchangeSidenavRoutingModule,
     BrowserAnimationsModule,
@@ -29,7 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatListModule,
     MatIconModule,
-    // MatSidenavModule,
     HttpClientModule,
   ],
   providers: [],

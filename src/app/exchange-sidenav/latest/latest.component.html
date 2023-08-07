@@ -1,1 +1,45 @@
-<p>latest works!</p>
+
+<div class="container">
+    <div class="jumbotron">
+      <h1>Latest exchange rates</h1>
+
+    </div>
+    <div *ngIf="exchange" class="row">
+        <div class ="col-lg-4"></div>
+        <div class ="col-lg-6">
+                    <p>Exchange rates from {{exchange.date}}</p>
+        </div>
+        
+
+    </div>
+
+    <div *ngIf="exchange">
+        <div>
+            <h1>Base currency: {{exchange.base}}</h1>
+        </div>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th> </th>
+              <th>Currency name</th>
+              <th>Rate</th>
+              
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr
+              *ngFor="
+                let rate of exchange.rates | keyvalue;
+                let i = index
+              "
+            >
+              <td>{{ i + 1 }}</td>
+              <td>{{ rate.key }}</td>
+              <td>{{ rate.value }}</td>
+              
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
