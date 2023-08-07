@@ -10,6 +10,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs'; 
 import { CurrencyListModule } from './currency-list/currency-list.module';
 import { LatestModule } from './latest/latest.module';
+import { MainpageModule } from './mainpage/mainpage.module';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { LatestModule } from './latest/latest.module';
     MatButtonModule,
     MatTabsModule,
     CurrencyListModule,
-    LatestModule
+    LatestModule,
   ]
 })
 export class ExchangeSidenavModule { 
