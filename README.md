@@ -6,14 +6,14 @@
 
 ## About application
 
-Currency exchange rates single page frontend application. This project is using REST API to communicate with backend of my another application, to display available currencies and exchange rates data. This is basic version, where users can view latest exchange rates for over 30 currencies. There are many things i want to implement.
+Single-page currency exchange rates frontend application that interacts with a REST API, connecting to the backend of another application. The app provides data on available currencies and current exchange rates for over 30 currencies.
 
 Repository of backend application that returns exchange rates in JSON format:
 https://github.com/DawidPerkowskiGit/ExchangeCurrencyApp_DP
 
 
 ## Technologies
-Angular 13, Angular Materials, HTML, Docker, Render.
+Angular 13, RxJS, Bootstrap, Angular Materials, Docker, REST API.
 
 
 ## More detailed information about modules
