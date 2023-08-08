@@ -6,7 +6,7 @@
 
 ## About application
 
-Currency exchange rates single page frontend application. This project is communicating via REST API with backend of my another application, to display available currencies and exchange rates data. This is basic version, where users can view latest exchange rates for over 30 currencies. There are many things i want to implement.
+Currency exchange rates single page frontend application. This project is using REST API to communicate with backend of my another application, to display available currencies and exchange rates data. This is basic version, where users can view latest exchange rates for over 30 currencies. There are many things i want to implement.
 
 Repository of backend application that returns exchange rates in JSON format:
 https://github.com/DawidPerkowskiGit/ExchangeCurrencyApp_DP
