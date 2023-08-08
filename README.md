@@ -18,8 +18,11 @@ Angular 13, Angular Materials, HTML, Docker, Render.
 
 ## More detailed information about modules
 
+Users now are able to:
+- view table of latest currency exchange rates, based on Euro
+- view list of available currencies
+
 Users will be able to:
-- view table of latest currency exchange rates
 - view line charts of currency rates in specified time scope
 - compare exchange rates of few currencies
 - specify the exchange date and base currency
