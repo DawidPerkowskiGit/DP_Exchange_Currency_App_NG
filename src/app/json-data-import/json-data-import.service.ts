@@ -20,7 +20,8 @@ import { environment } from "src/environments/environment.prod"
     }
 
     getLatestExchange(): Observable<ExchangesObject> {
-      let completeUrl = environment.API_ENPOINT + environment.EXCHANGE_URL + '?' + environment.API_KEY_ATTRIBUTE + environment.NG_API_KEY;
+      let completeUrl = environment.API_ENPOINT + environment.EXCHANGE_URL + '?' + environment.API_KEY_ATTRIBUTE;
+      // let completeUrl = environment.API_ENPOINT + environment.EXCHANGE_URL + '?' + environment.API_KEY_ATTRIBUTE + environment.NG_API_KEY;
       return this.http.get<ExchangesObject>(completeUrl).pipe(
         shareReplay(1)
       );
