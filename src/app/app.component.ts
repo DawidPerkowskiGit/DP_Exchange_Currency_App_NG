@@ -1,5 +1,5 @@
 import { Component, isDevMode } from '@angular/core';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +15,9 @@ export class AppComponent {
     } else {
       console.log('Production!');
     }
+
+    console.log(environment.production);
   }
+
 
 }
