@@ -16,6 +16,8 @@
 
 FROM node:16-alpine AS build
 WORKDIR /app
+ARG DEV_MODE=production
+ENV DEV_MODE $DEV_MODE
 ARG NG_API_KEY=none
 ENV NG_API_KEY $NG_API_KEY
 
