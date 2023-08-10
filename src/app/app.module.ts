@@ -15,6 +15,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { LatestModule } from './exchange-sidenav/latest/latest.module';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
+
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -28,9 +35,14 @@ import { LatestModule } from './exchange-sidenav/latest/latest.module';
     BrowserAnimationsModule,
     MatTabsModule,
     MatToolbarModule,
-    MatListModule,
-    MatIconModule,
+    // MatListModule,
+    // MatIconModule,
     HttpClientModule,
+    // MatDialogModule,
+    // MatMenuModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

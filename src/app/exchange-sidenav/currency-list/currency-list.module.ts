@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CurrencyListComponent } from './currency-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
+import { CurrencyDropdownListModule } from './currency-dropdown-list/currency-dropdown-list.module';
 
 
 
@@ -13,7 +14,8 @@ import {MatTableModule} from '@angular/material/table';
   imports: [
     CommonModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    CurrencyDropdownListModule
   ]
 })
 export class CurrencyListModule { }

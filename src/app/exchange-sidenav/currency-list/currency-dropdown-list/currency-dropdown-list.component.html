@@ -1,0 +1,13 @@
+<p>currency-dropdown-list works!</p>
+<form>
+    <h4>mat-select</h4>
+    <mat-form-field>
+      <mat-label>Favorite food</mat-label>
+      <mat-select [(ngModel)]="selectedCurrency" name="currency">
+        <mat-option *ngFor="let currency of currencyList.currencies | keyvalue" [value]="currency.value">
+          {{currency.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p> Selected food: {{selectedCurrency}} </p>
+</form>

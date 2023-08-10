@@ -25,7 +25,7 @@ export class ApiUrlComposeService {
 
         if (input.length > 0) {
           input.forEach((element) => {
-            url += '?' + element;
+            url += '&' + element;
           });
         }
       }
