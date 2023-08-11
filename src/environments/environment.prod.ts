@@ -9,4 +9,5 @@ export const environment = {
   FINISH_DATE_ATTRIBUTE: 'finishDate',
   BASE_CURRENCY_ATTRIBUTE: 'baseCurrency',
   REQUESTED_CURRENCY_ATTRIBUTE: 'currency',
+  DEFULT_BASE_CURRENCY: 'EUR',
 };
