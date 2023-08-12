@@ -25,7 +25,7 @@ export class LatestComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.importCurrencyExchangeRates();  
+    this.importCurrencyExchangeRates('');  
   }
 
   removeBaseCurrency() {
@@ -34,10 +34,10 @@ export class LatestComponent implements OnInit, OnChanges {
     }
   }
 
-  importCurrencyExchangeRates(event?: Event) {
-    console.log('Event log',event)
+  importCurrencyExchangeRates(baseCurrency?: string) {
+    console.log('Event log :::: ---',baseCurrency)
     this.jsonDataImportService
-    .getLatestExchange()
+    .getLatestExchange(baseCurrency)
     .subscribe((data: ExchangesObject) => {
       console.log(data);
       this.exchange = this.copyService.copy(data);

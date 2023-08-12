@@ -21,13 +21,18 @@ import { ApiUrlComposeService } from "../tools/api-url-compose-service";
       );
     }
 
-    getLatestExchange(): Observable<ExchangesObject> {
-      // let completeUrl = environment.API_ENPOINT + environment.EXCHANGE_URL + '?' + environment.API_KEY_ATTRIBUTE;
+    getLatestExchange(baseCurrency?: string): Observable<ExchangesObject> {
       let parameters: string[];
       parameters = [environment.EXCHANGE_URL];
       if (environment.production == false) {
         parameters.push(environment.API_KEY_ATTRIBUTE + environment.NG_API_KEY);
       }
+
+      if (baseCurrency != null) {
+        parameters.push(environment.BASE_CURRENCY_ATTRIBUTE + baseCurrency);
+      }
+
+      console.log("Request parameters: " + parameters);
       
       return this.http.get<ExchangesObject>(
         this.urlComposeService.composeUrl(parameters)

@@ -16,9 +16,7 @@ export class CurrencyDropdownListComponent implements OnInit {
 
   selectedCurrency: string = 'EUR';
 
-  nextCurrency = new Subject<string>();
-
-  @Output() selectedCurrencyEvent = new EventEmitter();
+  @Output('updateBaseCurrency') selectedCurrencyEvent: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private jsonDataImportService: JsonDataImportService,
     private copyService: CurrencyObjectsHardCopyService) {
@@ -37,8 +35,8 @@ export class CurrencyDropdownListComponent implements OnInit {
 
   selectCurrency(currency: string) {
     this.selectedCurrencyEvent.emit(currency);
-    console.log(currency);
-    this.nextCurrency.next(currency);
+    // console.log(currency);
+    // this.nextCurrency.next(currency);
     console.log('New currency selected, pushing new currency to subsrcibers', currency);
   }
 

@@ -15,7 +15,7 @@
 
     <div *ngIf="exchange">
         <div>
-          <app-currency-dropdown-list (childValueChange)='importCurrencyExchangeRates($event)'></app-currency-dropdown-list>
+          <app-currency-dropdown-list (updateBaseCurrency)="importCurrencyExchangeRates($event)"></app-currency-dropdown-list>
             <h1>Base currency: {{exchange.base}}</h1>
         </div>
         <table class="table table-bordered">
