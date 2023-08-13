@@ -21,7 +21,7 @@ import { ApiUrlComposeService } from "../tools/api-url-compose-service";
       );
     }
 
-    getLatestExchange(baseCurrency?: string): Observable<ExchangesObject> {
+    getLatestExchange(baseCurrency?: string, exchangeDate?: string): Observable<ExchangesObject> {
       let parameters: string[];
       parameters = [environment.EXCHANGE_URL];
       if (environment.production == false) {
@@ -30,6 +30,10 @@ import { ApiUrlComposeService } from "../tools/api-url-compose-service";
 
       if (baseCurrency != null) {
         parameters.push(environment.BASE_CURRENCY_ATTRIBUTE + baseCurrency);
+      }
+
+      if (exchangeDate != null) {
+        parameters.push(environment.START_DATE_ATTRIBUTE + exchangeDate);
       }
 
       console.log("Request parameters: " + parameters);

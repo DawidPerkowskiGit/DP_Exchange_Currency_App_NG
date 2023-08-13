@@ -22,6 +22,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { MatSelectModule } from '@angular/material/select';
+import { MatNativeDateModule } from '@angular/material/core';
+import { CurrencyDatePickerModule } from './exchange-sidenav/currency-list/currency-date-picker/currency-date-picker.module';
 
 @NgModule({
   declarations: [
@@ -38,11 +40,13 @@ import { MatSelectModule } from '@angular/material/select';
     // MatListModule,
     // MatIconModule,
     HttpClientModule,
-    // MatDialogModule,
-    // MatMenuModule,
+    MatDialogModule,
+    MatMenuModule,
     MatAutocompleteModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatNativeDateModule,
+    CurrencyDatePickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
