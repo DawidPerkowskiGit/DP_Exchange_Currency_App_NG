@@ -21,11 +21,12 @@ Angular 13, RxJS, Bootstrap, Angular Materials, Docker, REST API.
 Users now are able to:
 - view table of latest currency exchange rates, based on Euro
 - view list of available currencies
+- change the base currency from EUR to any other available
 
 Users will be able to:
 - view line charts of currency rates in specified time scope
 - compare exchange rates of few currencies
-- specify the exchange date and base currency
+- specify the exchange date
 
 
 ## Application view
