@@ -15,8 +15,6 @@ export class AppComponent {
     } else {
       console.log('Production!');
     }
-
-    console.log(environment.production);
   }
 
 

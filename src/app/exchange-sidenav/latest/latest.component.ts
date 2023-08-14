@@ -25,7 +25,7 @@ export class LatestComponent implements OnInit, OnChanges {
 
   baseCurrency = environment.DEFULT_BASE_CURRENCY;
 
-  exchangeDate: string = new Date().toLocaleString();
+  exchangeDate: Date = new Date();
 
   @ViewChild(CurrencyDropdownListComponent)
   currencyDropdownList!: CurrencyDropdownListComponent;
@@ -66,12 +66,33 @@ export class LatestComponent implements OnInit, OnChanges {
       console.log('New data', date);
     }
 
-    this.exchangeDate = date.value!.toString();
+    this.exchangeDate = date.value!;
     this.importCurrencyExchangeRates();
   }
 
-  transformDate(date: Date) {
-    var datePipe = new DatePipe('en-UK');
+  transformDateToString(date: Date): string {
+    var monthString = (date.getMonth()+ 1).toString();
+    if (isDevMode()) {
+      console.log("console.log(date.getMonth())",date.getMonth())
+    }
+    if (this.exchangeDate.getMonth() < 10) {
+      monthString = '0' + monthString;
+    }
+
+    var dayString = (date.getDate()).toString();
+    if (isDevMode()) {
+      console.log("console.log(date.getDate());",date.getDate());
+    }
+    if (this.exchangeDate.getDate() < 10) {
+      dayString = '0' + dayString;
+    }
+
+    var result = date.getFullYear().toString() + '-' + monthString + '-' + dayString;
+    if (isDevMode()) {
+      console.log("Transformed date ::: ----  " ,result);
+
+    }
+    return result;
     // this.exchangeDate = datePipe.transform(date, 'dd/MM/yyyy')
   }
 
@@ -89,7 +110,7 @@ export class LatestComponent implements OnInit, OnChanges {
 
   importCurrencyExchangeRates() {
     this.jsonDataImportService
-      .getLatestExchange(this.baseCurrency, this.exchangeDate)
+      .getLatestExchange(this.baseCurrency, this.transformDateToString(this.exchangeDate))
       .subscribe((data: ExchangesObject) => {
         if (isDevMode()) {
           console.log(data);
