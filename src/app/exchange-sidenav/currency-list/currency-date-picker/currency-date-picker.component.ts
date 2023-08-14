@@ -1,14 +1,21 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  isDevMode,
+} from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-currency-date-picker',
   templateUrl: './currency-date-picker.component.html',
-  styleUrls: ['./currency-date-picker.component.scss']
+  styleUrls: ['./currency-date-picker.component.scss'],
 })
 export class CurrencyDatePickerComponent implements OnInit {
-
-  @Output('updateExchangeDate') changedExchangeDate: EventEmitter<MatDatepickerInputEvent<Date>> = new EventEmitter<MatDatepickerInputEvent<Date>>();
+  @Output('updateExchangeDate') changedExchangeDate: EventEmitter<
+    MatDatepickerInputEvent<Date>
+  > = new EventEmitter<MatDatepickerInputEvent<Date>>();
 
   events: string[] = [];
 
@@ -17,13 +24,14 @@ export class CurrencyDatePickerComponent implements OnInit {
   }
 
   changeDate(type: string, event: MatDatepickerInputEvent<Date>) {
-    console.log("Date changed: ", event);
+    if (isDevMode()) {
+      console.log('Date changed: ', event);
+    }
+
     this.changedExchangeDate.emit(event);
   }
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

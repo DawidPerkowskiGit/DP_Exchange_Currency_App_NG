@@ -1,34 +1,34 @@
-import {
-  Component,
-  OnInit,
-} from '@angular/core';
-import {
-  ListCurrencyResponse,
-} from 'src/app/json-data-import/currencies-interface';
+import { Component, OnInit, isDevMode } from '@angular/core';
+import { ListCurrencyResponse } from 'src/app/json-data-import/currencies-interface';
 import { JsonDataImportService } from 'src/app/json-data-import/json-data-import.service';
 import { CurrencyObjectsHardCopyService } from 'src/app/tools/currency-objects-hard-copy.service';
-import {MatSort, MatSortModule} from '@angular/material/sort';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 @Component({
   selector: 'app-currency-list',
   templateUrl: './currency-list.component.html',
   styleUrls: ['./currency-list.component.scss'],
 })
 export class CurrencyListComponent implements OnInit {
-
   currencyList!: ListCurrencyResponse;
 
-  constructor(private jsonDataImportService: JsonDataImportService,
-    private copyService: CurrencyObjectsHardCopyService) {}
+  constructor(
+    private jsonDataImportService: JsonDataImportService,
+    private copyService: CurrencyObjectsHardCopyService
+  ) {}
 
   ngOnInit(): void {
-    console.log(this.currencyList);
+    if (isDevMode()) {
+      console.log(this.currencyList);
+    }
+
     this.jsonDataImportService
       .getCurrencies()
       .subscribe((data: ListCurrencyResponse) => {
         this.currencyList = this.copyService.copy(data);
-        console.log(this.currencyList);
+        if (isDevMode()) {
+          console.log(this.currencyList);
+        }
       });
-
   }
 }
