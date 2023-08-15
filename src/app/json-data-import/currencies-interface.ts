@@ -1,5 +1,21 @@
+// export class ListCurrencyResponse {
+//     currencies!: Map<number, string>;
+// }
+
 export class ListCurrencyResponse {
-    currencies!: Map<number, string>;
+    currencies: CurrencyEntry[] = [];
+}
+
+export class CurrencyEntry{
+    isoName!: string;
+    fullName!: string;
+
+    // constructor() {}
+
+    constructor(isoName: string, fullName: string) {
+        this.isoName = isoName;
+        this.fullName = fullName;
+    }
 }
 
 export class ExchangesObject {

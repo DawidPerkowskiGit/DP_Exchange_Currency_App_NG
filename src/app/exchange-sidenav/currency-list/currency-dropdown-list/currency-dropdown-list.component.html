@@ -4,11 +4,10 @@
       <mat-label>Base Currency</mat-label>
         <mat-select [(ngModel)]="selectedCurrency"
         (ngModelChange)="selectCurrency(selectedCurrency)" name="currency">
-          <mat-option *ngFor="let currency of currencyList.currencies | keyvalue" [value]="currency.value">
-            {{currency.value}}
+          <mat-option *ngFor="let currency of currencyList.currencies" [value]="currency.isoName">
+            {{currency.isoName}}
           </mat-option>
         </mat-select>
     </mat-form-field>
-    <!-- <p> Selected currency: {{selectedCurrency}} </p> -->
 </form>
 </div>

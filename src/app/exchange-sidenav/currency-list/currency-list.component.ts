@@ -27,7 +27,7 @@ export class CurrencyListComponent implements OnInit {
       .subscribe((data: ListCurrencyResponse) => {
         this.currencyList = this.copyService.copy(data);
         if (isDevMode()) {
-          console.log(this.currencyList);
+          console.log("Currency List after copying",this.currencyList);
         }
       });
   }
