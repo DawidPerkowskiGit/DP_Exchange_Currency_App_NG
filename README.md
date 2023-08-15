@@ -31,7 +31,9 @@ Users will be able to:
 
 ## Application view
 
-![obraz](https://github.com/DawidPerkowskiGit/DP_Exchange_Currency_App_NG/assets/87314459/8c22bdd7-9b38-493b-aa0f-dfb223a7561b)
-![obraz](https://github.com/DawidPerkowskiGit/DP_Exchange_Currency_App_NG/assets/87314459/dab12bf3-1ee4-4a99-aa02-23a019217481)
+![obraz](https://github.com/DawidPerkowskiGit/DP_Exchange_Currency_App_NG/assets/87314459/46ad9d55-67b6-44eb-a2d4-1300f79ffd69)
+
+![obraz](https://github.com/DawidPerkowskiGit/DP_Exchange_Currency_App_NG/assets/87314459/6f204f27-0206-4c26-ad85-b6c68f29d63a)
+
 
 
