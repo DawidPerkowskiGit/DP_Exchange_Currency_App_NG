@@ -1,0 +1,30 @@
+<div>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Available currencies</h1>
+      </div>
+      <div>
+        <div *ngIf="currencyList">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th style="width: 45%">ISO name</th>
+                <th style="width: 45%">Full name</th>
+                <th style="width: 10%">Locations</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let currency of currencyList">
+                <td>{{ currency.isoName }}</td>
+                <td>{{ currency.fullName }}</td>
+                <td>{{currency.locationList}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  
+    <div class="container"></div>
+  </div>
+  

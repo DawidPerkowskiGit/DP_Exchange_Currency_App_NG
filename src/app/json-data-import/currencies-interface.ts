@@ -24,3 +24,9 @@ export class ExchangesObject {
     base!: string;
     rates!: Map<string, number>;
 }
+
+export class CurrenciesLocations {
+    isoName!: string;
+    fullName!: string;
+    locationList!: string[];
+}

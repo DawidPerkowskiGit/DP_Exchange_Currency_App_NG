@@ -3,6 +3,7 @@ export const environment = {
   API_ENPOINT: 'https://exchangecurrencyapp-dp-render.onrender.com/api',
   NG_API_KEY: '',
   CURRENCIES_URL: '/currencies',
+  LOCATIONS_URL: '/currencies/locations',
   EXCHANGE_URL: '/exchange',
   API_KEY_ATTRIBUTE: 'apiKey=',
   START_DATE_ATTRIBUTE: 'startDate=',

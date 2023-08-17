@@ -7,6 +7,7 @@ import { ExchangeSidenavComponent } from './exchange-sidenav.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { CurrencyListComponent } from './currency-list/currency-list.component';
 import { LatestComponent } from './latest/latest.component';
+import { CurrenciesLocationsComponent } from './currencies-locations/currencies-locations.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,8 @@ const routes: Routes = [
       },
       {
         path: 'currencies',
-        component: CurrencyListComponent,
+        // component: CurrencyListComponent,
+        component: CurrenciesLocationsComponent
       },
       {
         path: '**',

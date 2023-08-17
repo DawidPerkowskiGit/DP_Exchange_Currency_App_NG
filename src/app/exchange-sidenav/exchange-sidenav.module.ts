@@ -11,6 +11,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { CurrencyListModule } from './currency-list/currency-list.module';
 import { LatestModule } from './latest/latest.module';
 import { MainpageModule } from './mainpage/mainpage.module';
+import { CurrenciesLocationsModule } from './currencies-locations/currencies-locations.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { MainpageModule } from './mainpage/mainpage.module';
     MatTabsModule,
     CurrencyListModule,
     LatestModule,
+    CurrenciesLocationsModule,
   ]
 })
 export class ExchangeSidenavModule { 

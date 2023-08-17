@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, isDevMode } from '@angular/core';
 import { Observable, shareReplay } from 'rxjs';
-import { ExchangesObject, ListCurrencyResponse } from './currencies-interface';
+import { CurrenciesLocations, ExchangesObject, ListCurrencyResponse } from './currencies-interface';
 import { environment } from 'src/environments/environment';
 import { ApiUrlComposeService } from '../tools/api-url-compose-service';
 
@@ -20,6 +20,14 @@ export class JsonDataImportService {
         this.urlComposeService.composeUrl([environment.CURRENCIES_URL])
       )
       .pipe(shareReplay(1));
+  }
+
+  getCurrenciesAndLocations(): Observable<CurrenciesLocations[]> {
+    return this.http
+    .get<CurrenciesLocations[]>(
+      this.urlComposeService.composeUrl([environment.LOCATIONS_URL])
+    )
+    .pipe(shareReplay(1));
   }
 
   getLatestExchange(

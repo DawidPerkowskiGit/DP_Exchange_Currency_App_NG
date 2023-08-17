@@ -1,0 +1,374 @@
+[
+    {
+        "isoName": "CHF",
+        "fullName": "Swiss franc",
+        "locationList": [
+            "Switzerland",
+            "Liechtenstein"
+        ]
+    },
+    {
+        "isoName": "HRK",
+        "fullName": "Turkish lira",
+        "locationList": [
+            "Croatia"
+        ]
+    },
+    {
+        "isoName": "MXN",
+        "fullName": "Mexican peso",
+        "locationList": [
+            "Mexico"
+        ]
+    },
+    {
+        "isoName": "LVL",
+        "fullName": "Latvian lats",
+        "locationList": [
+            "Latvia"
+        ]
+    },
+    {
+        "isoName": "MTL",
+        "fullName": "Maltese lira",
+        "locationList": [
+            "Malta"
+        ]
+    },
+    {
+        "isoName": "LTL",
+        "fullName": "Lithuanian litas",
+        "locationList": [
+            "Lithuania"
+        ]
+    },
+    {
+        "isoName": "ZAR",
+        "fullName": "South African rand",
+        "locationList": [
+            "Eswatini",
+            "Lesotho",
+            "Namibia",
+            "South Africa"
+        ]
+    },
+    {
+        "isoName": "INR",
+        "fullName": "Indian rupee",
+        "locationList": [
+            "India",
+            "Bhutan"
+        ]
+    },
+    {
+        "isoName": "TRL",
+        "fullName": "Turkish lira",
+        "locationList": [
+            "Turkey"
+        ]
+    },
+    {
+        "isoName": "CNY",
+        "fullName": "Renminbi",
+        "locationList": [
+            "China"
+        ]
+    },
+    {
+        "isoName": "THB",
+        "fullName": "Thai baht",
+        "locationList": [
+            "Thailand"
+        ]
+    },
+    {
+        "isoName": "AUD",
+        "fullName": "Australian dollar",
+        "locationList": [
+            "Australia",
+            "Christmas Island",
+            "Cocos (Keeling) Islands",
+            "Heard Island and McDonald Islands",
+            "Kiribati",
+            "Nauru",
+            "Norfolk Island",
+            "Tuvalu"
+        ]
+    },
+    {
+        "isoName": "ILS",
+        "fullName": "Israeli new shekel",
+        "locationList": [
+            "Israel"
+        ]
+    },
+    {
+        "isoName": "KRW",
+        "fullName": "South Korean won",
+        "locationList": [
+            "South Korea"
+        ]
+    },
+    {
+        "isoName": "JPY",
+        "fullName": "Japanese yen",
+        "locationList": [
+            "Japan"
+        ]
+    },
+    {
+        "isoName": "PLN",
+        "fullName": "Polish zloty",
+        "locationList": [
+            "Poland"
+        ]
+    },
+    {
+        "isoName": "GBP",
+        "fullName": "Pound sterling",
+        "locationList": [
+            "United Kingdom",
+            "Isle of Man",
+            "Jersey",
+            "Guernsey",
+            "Tristan da Cunha"
+        ]
+    },
+    {
+        "isoName": "IDR",
+        "fullName": "Indonesian rupiah",
+        "locationList": [
+            "Indonesia"
+        ]
+    },
+    {
+        "isoName": "HUF",
+        "fullName": "Hungarian forint",
+        "locationList": [
+            "Hungary"
+        ]
+    },
+    {
+        "isoName": "PHP",
+        "fullName": "Philippine peso",
+        "locationList": [
+            "Philippines"
+        ]
+    },
+    {
+        "isoName": "TRY",
+        "fullName": "Turkish lira",
+        "locationList": [
+            "Turkey"
+        ]
+    },
+    {
+        "isoName": "CYP",
+        "fullName": "Cypriot pound",
+        "locationList": [
+            "Cyprus"
+        ]
+    },
+    {
+        "isoName": "RUB",
+        "fullName": "Russian ruble",
+        "locationList": [
+            "Russia"
+        ]
+    },
+    {
+        "isoName": "ISK",
+        "fullName": "Icelandic krona",
+        "locationList": [
+            "Iceland"
+        ]
+    },
+    {
+        "isoName": "HKD",
+        "fullName": "Hong Kong dollar",
+        "locationList": [
+            "Hong Kong"
+        ]
+    },
+    {
+        "isoName": "EUR",
+        "fullName": "Euro",
+        "locationList": [
+            "Aland Islands",
+            "European Union",
+            "Andorra",
+            "Austria",
+            "Belgium",
+            "Croatia",
+            "Cyprus",
+            "Estonia",
+            "Finland",
+            "France",
+            "French Southern and Antarctic Lands",
+            "Germany",
+            "Greece",
+            "Guadeloupe",
+            "Ireland",
+            "Italy",
+            "Kosovo",
+            "Latvia",
+            "Lithuania",
+            "Luxembourg",
+            "Malta",
+            "French Guiana",
+            "Martinique",
+            "Mayotte",
+            "Monaco",
+            "Montenegro",
+            "Netherlands",
+            "Portugal",
+            "Reunion",
+            "Saint Barthelemy",
+            "Saint Martin",
+            "Saint Pierre and Miquelon",
+            "San Marino",
+            "Slovakia",
+            "Slovenia",
+            "Spain",
+            "Vatican City"
+        ]
+    },
+    {
+        "isoName": "DKK",
+        "fullName": "Danish krone",
+        "locationList": [
+            "Denmark",
+            "Faroe Islands",
+            "Greenland"
+        ]
+    },
+    {
+        "isoName": "USD",
+        "fullName": "United States dollar",
+        "locationList": [
+            "United States",
+            "American Samoa",
+            "British Indian Ocean Territory",
+            "British Virgin Islands",
+            "Caribbean Netherlands",
+            "Ecuador",
+            "El Salvador",
+            "Guam",
+            "Marshall Islands",
+            "Federated States of Micronesia",
+            "Northern Mariana Islands",
+            "Palau",
+            "Panama",
+            "Puerto Rico",
+            "Timor-Leste",
+            "Turks and Caicos Islands",
+            "U.S. Virgin Islands",
+            "United States Minor Outlying Islands"
+        ]
+    },
+    {
+        "isoName": "CAD",
+        "fullName": "Canadian dollar",
+        "locationList": [
+            "Canada"
+        ]
+    },
+    {
+        "isoName": "MYR",
+        "fullName": "Malaysian ringgit",
+        "locationList": [
+            "Malaysia"
+        ]
+    },
+    {
+        "isoName": "BGN",
+        "fullName": "Bulgarian lev",
+        "locationList": [
+            "Bulgaria"
+        ]
+    },
+    {
+        "isoName": "EEK",
+        "fullName": "Estonian kroon",
+        "locationList": [
+            "Estonia"
+        ]
+    },
+    {
+        "isoName": "NOK",
+        "fullName": "Norwegian krone",
+        "locationList": [
+            "Norway",
+            "Svalbard",
+            "Jan Mayen",
+            "Bouvet Island"
+        ]
+    },
+    {
+        "isoName": "ROL",
+        "fullName": "Romanian leu",
+        "locationList": [
+            "Romania"
+        ]
+    },
+    {
+        "isoName": "RON",
+        "fullName": "Romanian leu",
+        "locationList": [
+            "Romania"
+        ]
+    },
+    {
+        "isoName": "SGD",
+        "fullName": "Singapore dollar",
+        "locationList": [
+            "Singapore"
+        ]
+    },
+    {
+        "isoName": "SKK",
+        "fullName": "Slovak koruna",
+        "locationList": [
+            "Slovakia"
+        ]
+    },
+    {
+        "isoName": "CZK",
+        "fullName": "Czech koruna",
+        "locationList": [
+            "Czechia"
+        ]
+    },
+    {
+        "isoName": "SEK",
+        "fullName": "Swedish krona",
+        "locationList": [
+            "Sweden"
+        ]
+    },
+    {
+        "isoName": "NZD",
+        "fullName": "New Zealand dollar",
+        "locationList": [
+            "New Zealand",
+            "Cook Islands",
+            "Niue",
+            "Pitcairn Islands",
+            "Tokelau"
+        ]
+    },
+    {
+        "isoName": "BRL",
+        "fullName": "Brazilian real",
+        "locationList": [
+            "Brazil"
+        ]
+    },
+    {
+        "isoName": "SIT",
+        "fullName": "Slovenian tolar",
+        "locationList": [
+            "Slovenia"
+        ]
+    }
+]

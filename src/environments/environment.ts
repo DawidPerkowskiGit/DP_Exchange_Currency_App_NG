@@ -8,6 +8,7 @@ export const environment = {
   NG_API_KEY: process.env['NG_API_KEY'] || 'DEFAULT_VALUE',
   // DEV_MODE: process.env['DEV_MODE'] || 'development',
   CURRENCIES_URL: '/currencies',
+  LOCATIONS_URL: '/currencies/locations',
   EXCHANGE_URL: '/exchange',
   API_KEY_ATTRIBUTE: 'apiKey=',
   START_DATE_ATTRIBUTE: 'startDate=',
