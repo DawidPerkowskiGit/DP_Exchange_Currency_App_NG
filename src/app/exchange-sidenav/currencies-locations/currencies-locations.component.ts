@@ -17,6 +17,10 @@ export class CurrenciesLocationsComponent implements OnInit {
     private copyService: CurrencyLocationsObjectsHardCopyService
   ) {}
 
+  /**
+   * Get currencies and locations data
+   */
+
   ngOnInit(): void {
     if (isDevMode()) {
       console.log(this.currencyList);

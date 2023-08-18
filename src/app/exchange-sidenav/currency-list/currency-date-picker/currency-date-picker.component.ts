@@ -17,12 +17,6 @@ export class CurrencyDatePickerComponent implements OnInit {
     MatDatepickerInputEvent<Date>
   > = new EventEmitter<MatDatepickerInputEvent<Date>>();
 
-  events: string[] = [];
-
-  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-    this.events.push(`${type}: ${event.value}`);
-  }
-
   changeDate(type: string, event: MatDatepickerInputEvent<Date>) {
     if (isDevMode()) {
       console.log('Date changed: ', event);
