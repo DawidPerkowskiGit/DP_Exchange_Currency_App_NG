@@ -4,7 +4,9 @@ import { Observable, shareReplay } from 'rxjs';
 import { CurrenciesLocations, ExchangesObject, ListCurrencyResponse } from './currencies-interface';
 import { environment } from 'src/environments/environment';
 import { ApiUrlComposeService } from '../tools/api-url-compose-service';
-
+/**
+ * Service user to fetch the data form REST API endpoint in JSON format and casts it to TS obejct format
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -14,6 +16,10 @@ export class JsonDataImportService {
     private urlComposeService: ApiUrlComposeService
   ) {}
 
+  /**
+   * Fetches currencies list data
+   * @returns Currencies list in ListCurrencyResponse format
+   */
   getCurrencies(): Observable<ListCurrencyResponse> {
     return this.http
       .get<ListCurrencyResponse>(
@@ -22,6 +28,10 @@ export class JsonDataImportService {
       .pipe(shareReplay(1));
   }
 
+  /**
+   * Fetches currencies and their locations
+   * @returns  Currencies and lcoations data in CurrenciesLocations format
+   */
   getCurrenciesAndLocations(): Observable<CurrenciesLocations[]> {
     return this.http
     .get<CurrenciesLocations[]>(
@@ -30,6 +40,12 @@ export class JsonDataImportService {
     .pipe(shareReplay(1));
   }
 
+  /**
+   * Fetches exchange rated data
+   * @param baseCurrency Optional - base currency used to calculate ratios
+   * @param exchangeDate Optional - exchage rates date
+   * @returns Exchange rated data in ExchangesObject format
+   */
   getLatestExchange(
     baseCurrency?: string,
     exchangeDate?: string

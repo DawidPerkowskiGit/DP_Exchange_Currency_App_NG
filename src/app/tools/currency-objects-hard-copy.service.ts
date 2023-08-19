@@ -5,11 +5,19 @@ import {
   ListCurrencyResponse,
 } from '../json-data-import/currencies-interface';
 
+/**
+ * Copies currency data
+ */
 @Injectable({
   providedIn: 'any',
 })
 export class CurrencyObjectsHardCopyService {
   constructor(private buildMapService: BuildMapService) {}
+  /**
+   * Copies subscribed currencies data and sortes them by currency iso name.
+   * @param input Data fetched from subscription
+   * @returns   Sorted data in ListCurrencyResponse format
+   */
 
   copy(input: any): ListCurrencyResponse {
     let output: ListCurrencyResponse = new ListCurrencyResponse();
