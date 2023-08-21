@@ -1,5 +1,6 @@
 .content {
-    height: calc(100vh - 300px);
+    // height: calc(100vh - 300px);
+    height: 100%;
     border-radius: 10px;
     margin: 16px;
     margin-left: 32px;
@@ -10,4 +11,37 @@
   
     font-size: 2.5rem;
     color: rgb(0, 0, 0);
+
+    // background-image:  url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+    background-image:  url('https://images.pexels.com/photos/259132/pexels-photo-259132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+
+    .main-app-header {
+      font-style: bold;
+      font-size: large;
+      font-size: 36px;
+    }
+
+    .panels-section {
+      height: 100%;
+      border-radius: 10px;
+      margin: 16px;
+      margin-left: 32px;
+    }
+
+    .todo-panel-background {
+      background-image: url('https://images.pexels.com/photos/2097/desk-office-pen-ruler.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    }
+
+    .techstack-panel-background {
+      background-image: url('https://images.pexels.com/photos/326461/pexels-photo-326461.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+      color:ivory;
+    }
+
+    .description-text {
+      color: oldlace;
+    }
+
+    // .header-container {
+    //   bo
+    // }
   }
