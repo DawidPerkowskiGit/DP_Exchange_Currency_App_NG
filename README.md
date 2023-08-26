@@ -22,18 +22,20 @@ Users now are able to:
 - view table of latest currency exchange rates, based on Euro
 - view list of available currencies
 - change the base currency from EUR to any other available
+- specify the exchange date
 
 Users will be able to:
 - view line charts of currency rates in specified time scope
 - compare exchange rates of few currencies
-- specify the exchange date
+
 
 
 ## Application view
 
 ![obraz](https://github.com/DawidPerkowskiGit/DP_Exchange_Currency_App_NG/assets/87314459/46ad9d55-67b6-44eb-a2d4-1300f79ffd69)
 
-![obraz](https://github.com/DawidPerkowskiGit/DP_Exchange_Currency_App_NG/assets/87314459/6f204f27-0206-4c26-ad85-b6c68f29d63a)
+![obraz](https://github.com/DawidPerkowskiGit/DP_Exchange_Currency_App_NG/assets/87314459/d8aebc3f-6082-4c26-9c01-b4118d2b9074)
+
 
 
 
