@@ -14,6 +14,7 @@ import { CurrencyDropdownListComponent } from '../currency-list/currency-dropdow
 import { environment } from 'src/environments/environment';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { DatePipe } from '@angular/common';
+import { DatePickerToStringService } from 'src/app/tools/date-picker-to-string-service';
 
 @Component({
   selector: 'app-latest',
@@ -32,7 +33,8 @@ export class LatestComponent implements OnInit, OnChanges {
 
   constructor(
     private jsonDataImportService: JsonDataImportService,
-    private copyService: ExchangesObjectCopyingService
+    private copyService: ExchangesObjectCopyingService,
+    private dateTransformService: DatePickerToStringService,
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -44,12 +46,20 @@ export class LatestComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.importCurrencyExchangeRates();
   }
+  /**
+   * Removed base currency from exchange rates list
+   */
 
   removeBaseCurrency() {
     if (this.exchange.rates.has(this.exchange.base)) {
       this.exchange.rates.delete(this.exchange.base);
     }
   }
+
+  /**
+   * Updates base currency value
+   * @param baseCurrency base currency value retrieved from dropdown currency picker
+   */
 
   updateBaseCurrency(baseCurrency: string) {
     if (isDevMode()) {
@@ -59,6 +69,11 @@ export class LatestComponent implements OnInit, OnChanges {
     this.baseCurrency = baseCurrency;
     this.importCurrencyExchangeRates();
   }
+
+  /**
+   * Updates the exchange rates date
+   * @param date Exchange rate date retireved from date picker
+   */
 
   updateExchangeDate(date: MatDatepickerInputEvent<Date>) {
     if (isDevMode()) {
@@ -70,47 +85,12 @@ export class LatestComponent implements OnInit, OnChanges {
     this.importCurrencyExchangeRates();
   }
 
-  transformDateToString(date: Date): string {
-    var monthString = (date.getMonth()+ 1).toString();
-    if (isDevMode()) {
-      console.log("console.log(date.getMonth())",date.getMonth())
-    }
-    if (this.exchangeDate.getMonth() < 10) {
-      monthString = '0' + monthString;
-    }
-
-    var dayString = (date.getDate()).toString();
-    if (isDevMode()) {
-      console.log("console.log(date.getDate());",date.getDate());
-    }
-    if (this.exchangeDate.getDate() < 10) {
-      dayString = '0' + dayString;
-    }
-
-    var result = date.getFullYear().toString() + '-' + monthString + '-' + dayString;
-    if (isDevMode()) {
-      console.log("Transformed date ::: ----  " ,result);
-
-    }
-    return result;
-    // this.exchangeDate = datePipe.transform(date, 'dd/MM/yyyy')
-  }
-
-  // importCurrencyExchangeRates(baseCurrency?: string) {
-  //   console.log('Event log :::: ---',baseCurrency)
-  //   this.jsonDataImportService
-  //   .getLatestExchange(baseCurrency)
-  //   .subscribe((data: ExchangesObject) => {
-  //     console.log(data);
-  //     this.exchange = this.copyService.copy(data);
-  //     this.removeBaseCurrency();
-  //     console.log(this.exchange);
-  //   });
-  // }
-
+  /**
+   * Perform REST API call and retieve exchage rates data
+   */
   importCurrencyExchangeRates() {
     this.jsonDataImportService
-      .getLatestExchange(this.baseCurrency, this.transformDateToString(this.exchangeDate))
+      .getLatestExchange(this.baseCurrency, this.dateTransformService.transformDateToString(this.exchangeDate))
       .subscribe((data: ExchangesObject) => {
         if (isDevMode()) {
           console.log(data);

@@ -1,0 +1,194 @@
+[
+    {
+        "success": true,
+        "date": "2023-07-01",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.2254018915726741
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-02",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.2254018915726741
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-03",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22532692683814948
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-04",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22548712547434036
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-05",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.2254479312221487
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-06",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22405574506937329
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-07",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22309591540381365
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-08",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.2244177257687205
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-09",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22454824261808878
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-10",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22464963642702843
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-11",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22526139895888686
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-12",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22527987081551087
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-13",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22531860050110858
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-14",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.2243110566284478
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-15",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22411620335497473
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-16",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22412434059817443
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-17",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22443757066978007
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-18",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.2252638853785267
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-19",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.2248054365148323
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-20",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22447837958934821
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-21",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22392855783290902
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-22",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22398076990701887
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-23",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22395503699513253
+        }
+    },
+    {
+        "success": true,
+        "date": "2023-07-24",
+        "base": "PLN",
+        "rates": {
+            "EUR": 0.22477557282930857
+        }
+    }
+]
