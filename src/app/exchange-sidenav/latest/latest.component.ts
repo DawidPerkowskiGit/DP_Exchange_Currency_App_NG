@@ -24,7 +24,7 @@ import { DatePickerToStringService } from 'src/app/tools/date-picker-to-string-s
 export class LatestComponent implements OnInit, OnChanges {
   exchange!: ExchangesObject;
 
-  baseCurrency = environment.DEFULT_BASE_CURRENCY;
+  baseCurrency = environment.DEFAULT_BASE_CURRENCY;
 
   exchangeDate: Date = new Date();
 
