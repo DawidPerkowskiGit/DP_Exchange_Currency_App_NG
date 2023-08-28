@@ -1,12 +1,7 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
 export const environment = {
   production: false,
   API_ENPOINT: 'http://localhost:8080/api',
   NG_API_KEY: process.env['NG_API_KEY'] || 'DEFAULT_VALUE',
-  // DEV_MODE: process.env['DEV_MODE'] || 'development',
   CURRENCIES_URL: '/currencies',
   LOCATIONS_URL: '/currencies/locations',
   EXCHANGE_URL: '/exchange',
@@ -18,6 +13,9 @@ export const environment = {
   DEFAULT_BASE_CURRENCY: 'EUR',
   DEFAULT_REQUESTED_CURRENCY: 'USD',
 };
+// This file can be replaced during build by using the `fileReplacements` array.
+// `ng build` replaces `environment.ts` with `environment.prod.ts`.
+// The list of file replacements can be found in `angular.json`.
 
 /*
  * For easier debugging in development mode, you can import the following file
