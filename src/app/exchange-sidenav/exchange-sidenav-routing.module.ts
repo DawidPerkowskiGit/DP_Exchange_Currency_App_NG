@@ -32,6 +32,10 @@ const routes: Routes = [
         component: CurrenciesLocationsComponent
       },
       {
+        path: 'chart',
+        component: ChartComponent
+      },
+      {
         path: '**',
         component: MainpageComponent,
       },

@@ -12,6 +12,7 @@ import { CurrencyListModule } from './currency-list/currency-list.module';
 import { LatestModule } from './latest/latest.module';
 import { MainpageModule } from './mainpage/mainpage.module';
 import { CurrenciesLocationsModule } from './currencies-locations/currencies-locations.module';
+import { ChartModule } from './chart/chart.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { CurrenciesLocationsModule } from './currencies-locations/currencies-loc
     CurrencyListModule,
     LatestModule,
     CurrenciesLocationsModule,
+    ChartModule,
   ]
 })
 export class ExchangeSidenavModule { 

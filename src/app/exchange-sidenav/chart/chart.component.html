@@ -1,1 +1,33 @@
-<p>chart works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+        <app-currency-dropdown-list
+          [title]="requestedcurrencyTitle"
+          (updateBaseCurrency)="updateRequestedCurrency($event)"
+        ></app-currency-dropdown-list>
+      </div>
+    <div class="col-lg-4">
+
+      <app-currency-dropdown-list
+      [title]="baseCurrencyTitle"
+        (updateBaseCurrency)="updateBaseCurrency($event)"
+      ></app-currency-dropdown-list>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+        <app-currency-date-picker
+        [title]="startDateTitle"
+        (updateExchangeDate)="updateStartDate($event)"
+        ></app-currency-date-picker>
+    </div>
+    <div class="col-lg-4">
+        <app-currency-date-picker
+        [title]="finishDateTitle"
+        (updateExchangeDate)="updateFinishDate($event)"
+        ></app-currency-date-picker>
+    </div>
+  </div>
+
+  <button class="btn btn-confirm" (click)="requestData()">View history</button>
+</div>

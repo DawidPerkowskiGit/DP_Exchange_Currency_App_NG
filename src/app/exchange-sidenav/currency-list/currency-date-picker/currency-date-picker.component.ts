@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  Input,
   OnInit,
   Output,
   isDevMode,
@@ -25,7 +26,11 @@ export class CurrencyDatePickerComponent implements OnInit {
     this.changedExchangeDate.emit(event);
   }
 
+  @Input() title = 'Exchange date';
+
   constructor() {}
 
   ngOnInit(): void {}
+
+
 }

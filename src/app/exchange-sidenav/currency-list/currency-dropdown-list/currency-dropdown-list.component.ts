@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  Input,
   OnInit,
   Output,
   isDevMode,
@@ -19,6 +20,14 @@ export class CurrencyDropdownListComponent implements OnInit {
   currencyList!: ListCurrencyResponse;
 
   selectedCurrency: string = 'EUR';
+
+  // title: string = 'Base currency';
+
+  // @Input() inputTitle(titlein: string) {
+  //   this.title = titlein;
+  // }
+
+  @Input() title = 'Base currency';
 
   @Output('updateBaseCurrency') selectedCurrencyEvent: EventEmitter<string> =
     new EventEmitter<string>();
@@ -52,5 +61,9 @@ export class CurrencyDropdownListComponent implements OnInit {
         currency
       );
     }
+  }
+
+  changeTitle(title: string): void {
+    this.title = title;
   }
 }
