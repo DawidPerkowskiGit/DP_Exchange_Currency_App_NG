@@ -1,33 +1,67 @@
 <div class="container">
+  <div class="jumbotron">
+    <h1>Historical rates data</h1>
+  </div>
   <div class="row">
     <div class="col-lg-4">
-        <app-currency-dropdown-list
-          [title]="requestedcurrencyTitle"
-          (updateBaseCurrency)="updateRequestedCurrency($event)"
-        ></app-currency-dropdown-list>
-      </div>
-    <div class="col-lg-4">
-
       <app-currency-dropdown-list
-      [title]="baseCurrencyTitle"
+        [title]="requestedcurrencyTitle"
+        (updateBaseCurrency)="updateRequestedCurrency($event)"
+      ></app-currency-dropdown-list>
+    </div>
+    <div class="col-lg-4">
+      <app-currency-dropdown-list
+        [title]="baseCurrencyTitle"
         (updateBaseCurrency)="updateBaseCurrency($event)"
       ></app-currency-dropdown-list>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-4">
-        <app-currency-date-picker
+      <app-currency-date-picker
         [title]="startDateTitle"
         (updateExchangeDate)="updateStartDate($event)"
-        ></app-currency-date-picker>
+      ></app-currency-date-picker>
     </div>
     <div class="col-lg-4">
-        <app-currency-date-picker
+      <app-currency-date-picker
         [title]="finishDateTitle"
         (updateExchangeDate)="updateFinishDate($event)"
-        ></app-currency-date-picker>
+      ></app-currency-date-picker>
     </div>
   </div>
 
-  <button class="btn btn-confirm" (click)="requestData()">View history</button>
+  <div class="example-button-row">
+    <button  mat-button color="primary" (click)="requestData()">Proceed</button>
+  </div>
+  <div *ngIf="dataIsBeeingFetched">
+    <div class="data-fetch-info container">
+      <div class="row">
+        <div class="col-lg-4">
+                Fetching data, please wait...
+        </div>
+        <div class="col-lg-4">
+                <mat-spinner></mat-spinner>
+        </div>
+      </div>
+    </div>
+  </div>
+<div *ngIf="chartData">
+  <ngx-charts-line-chart
+    [view]="view"
+    [legend]="legend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxis]="xAxis"
+    [yAxis]="yAxis"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [timeline]="timeline"
+    [results]="chartData"
+    [autoScale]="autoscale"
+    (select)="onSelect($event)"
+    (activate)="onActivate($event)"
+    (deactivate)="onDeactivate($event)"
+  >
+  </ngx-charts-line-chart>
 </div>

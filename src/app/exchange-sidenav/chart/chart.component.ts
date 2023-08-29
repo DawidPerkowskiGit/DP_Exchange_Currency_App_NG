@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild, isDevMode } from '@angular/core';
-import { ExchangesObject } from 'src/app/json-data-import/currencies-interface';
+import { ExchangesObject, NgxLineChartData } from 'src/app/json-data-import/currencies-interface';
 import { JsonDataImportService } from 'src/app/json-data-import/json-data-import.service';
 import { DatePickerToStringService } from 'src/app/tools/date-picker-to-string-service';
 import { HistoricalExchangesOneCurrencyCopySevice } from 'src/app/tools/historical-exchanges-one-currency-copy-service';
 import { environment } from 'src/environments/environment';
 import { CurrencyDropdownListComponent } from '../currency-list/currency-dropdown-list/currency-dropdown-list.component';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { LineChartDataManipulationService } from 'src/app/tools/line-chart-data-manipulation-service';
 
 @Component({
   selector: 'app-chart',
@@ -13,6 +14,27 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
   styleUrls: ['./chart.component.scss']
 })
 export class ChartComponent implements OnInit {
+
+  // chartData = [
+  //   {
+  //     "name": "Germany",
+  //     "series": [
+  //       {
+  //         "name": "1990",
+  //         "value": 72000000
+  //       },
+  //       {
+  //         "name": "2010",
+  //         "value": 73000000
+  //       },
+  //       {
+  //         "name": "2011",
+  //         "value": 71400000
+  //       }
+  //     ]
+  //   },
+  // ];
+  
 
   exchange$: ExchangesObject[] = [];
 
@@ -29,25 +51,56 @@ export class ChartComponent implements OnInit {
   startDateTitle: string = "Start Date";
   finishDateTitle: string = "Finish Date";
 
-  @ViewChild(CurrencyDropdownListComponent)
-  baseCurrencyDropDownList!: CurrencyDropdownListComponent;
+  view: [number, number] = [800, 500];
 
-  @ViewChild(CurrencyDropdownListComponent)
-  requestedCurrencyDropDownList!: CurrencyDropdownListComponent;
+  // options
+  legend: boolean = true;
+  showLabels: boolean = true;
+  animations: boolean = true;
+  xAxis: boolean = true;
+  yAxis: boolean = true;
+  showYAxisLabel: boolean = true;
+  showXAxisLabel: boolean = true;
+  xAxisLabel: string = 'Date of exchange';
+  yAxisLabel: string = 'Rate';
+  timeline: boolean = true;
+  autoscale: boolean = true;
+
+  colorScheme = {
+    domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
+  };
+
+  chartData!: NgxLineChartData[];
+
+  dataIsBeeingFetched: boolean = false;
+
+
+  onSelect(data: any): void {
+    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+  }
+
+  onActivate(data: any): void {
+    console.log('Activate', JSON.parse(JSON.stringify(data)));
+  }
+
+  onDeactivate(data: any): void {
+    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
 
 
   constructor(    private jsonDataImportService: JsonDataImportService,
     private dateTransformService: DatePickerToStringService,
-    private copyService: HistoricalExchangesOneCurrencyCopySevice) { }
+    private copyService: HistoricalExchangesOneCurrencyCopySevice,
+    private chartDataConvertService: LineChartDataManipulationService,) { }
 
   ngOnInit(): void {
     this.setupDummyDate();
-    // this.importHistoricalOneCurrencyExchangeRates();
   }
 
   importHistoricalOneCurrencyExchangeRates() {
     let startDate = this.dateTransformService.transformDateToString(this.startDate);
     let finishDate = this.dateTransformService.transformDateToString(this.finishDate);
+    this.dataIsBeeingFetched = true;
 
     this.jsonDataImportService
       .getHistoricalExchangeRatesOfOneCurrency(this.baseCurrency, this.requestedCurrency, startDate, finishDate)
@@ -55,12 +108,16 @@ export class ChartComponent implements OnInit {
         if (isDevMode()) {
           console.log(data);
         }
-        // this.exchange$ = this.copyService.copy(data);
-        this.exchange$ = data;
+        this.exchange$ = this.copyService.copy(data);
+        // this.exchange$ = data;
         if (isDevMode()) {
           console.log(this.exchange$);
         }
+        this.chartData = this.chartDataConvertService.convertData(this.exchange$, this.requestedCurrency);
+        this.yAxisLabel = "Rates based on " + this.baseCurrency;
+        this.dataIsBeeingFetched = false;
       });
+
   }
 
   setupDummyDate() {

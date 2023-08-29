@@ -38,3 +38,16 @@ export class ExchangesObject {
     rates!: Map<string, number>;
 }
 
+/**
+ * Stores ngx-line-chart data
+ */
+
+export class NgxLineChartData {
+    name!: string;
+    series: NgxSeriesCollection[] = [];
+}
+
+export class NgxSeriesCollection {
+    name!: string;
+    value!: number;
+}

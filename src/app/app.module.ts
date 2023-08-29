@@ -24,6 +24,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { CurrencyDatePickerModule } from './exchange-sidenav/currency-list/currency-date-picker/currency-date-picker.module';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { CurrencyDatePickerModule } from './exchange-sidenav/currency-list/curre
     MatInputModule,
     MatSelectModule,
     MatNativeDateModule,
-    CurrencyDatePickerModule
+    CurrencyDatePickerModule,
+    NgxChartsModule,
+    MatButtonModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }

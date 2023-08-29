@@ -20,7 +20,12 @@ export class HistoricalExchangesOneCurrencyCopySevice  {
     let output: ExchangesObject[] = [];
 
     input.forEach(element => {
-        output.push(element);
+      let singleObject = new ExchangesObject;
+      singleObject.base = element.base;
+      singleObject.date = element.date;
+      singleObject.success = element.success;
+      singleObject.rates = this.buildMapService.buildMap(element.rates)
+        output.push(singleObject);
     });
     return output;
   }
