@@ -6,6 +6,7 @@ import { CurrencyDropdownListModule } from '../currency-list/currency-dropdown-l
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SpinningWheelModule } from '../spinning-wheel/spinning-wheel.module';
 
 
 
@@ -19,7 +20,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     CurrencyDatePickerModule,
     NgxChartsModule,
     BrowserAnimationsModule,
-    MatProgressSpinnerModule,
+    SpinningWheelModule,
   ]
 })
 export class ChartModule { }

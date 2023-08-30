@@ -17,6 +17,11 @@ export class CurrenciesLocationsComponent implements OnInit {
     private copyService: CurrencyLocationsObjectsHardCopyService
   ) {}
 
+  
+  dataIsBeeingFetched: boolean = false;
+  
+
+
   /**
    * Get currencies and locations data
    */
@@ -25,6 +30,7 @@ export class CurrenciesLocationsComponent implements OnInit {
     if (isDevMode()) {
       console.log(this.currencyList);
     }
+    this.dataIsBeeingFetched = true;
 
     this.jsonDataImportService
       .getCurrenciesAndLocations()
@@ -33,7 +39,9 @@ export class CurrenciesLocationsComponent implements OnInit {
         if (isDevMode()) {
           console.log("Currency and Locations List after copying ::::: ------",this.currencyList);
         }
+        this.dataIsBeeingFetched = false;
       });
+
   }
 
 }

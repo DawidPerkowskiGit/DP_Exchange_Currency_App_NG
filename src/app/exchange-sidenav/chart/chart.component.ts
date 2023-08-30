@@ -15,26 +15,6 @@ import { LineChartDataManipulationService } from 'src/app/tools/line-chart-data-
 })
 export class ChartComponent implements OnInit {
 
-  // chartData = [
-  //   {
-  //     "name": "Germany",
-  //     "series": [
-  //       {
-  //         "name": "1990",
-  //         "value": 72000000
-  //       },
-  //       {
-  //         "name": "2010",
-  //         "value": 73000000
-  //       },
-  //       {
-  //         "name": "2011",
-  //         "value": 71400000
-  //       }
-  //     ]
-  //   },
-  // ];
-  
 
   exchange$: ExchangesObject[] = [];
 

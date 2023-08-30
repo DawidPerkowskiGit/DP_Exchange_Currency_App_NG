@@ -2,15 +2,11 @@
   <div class="jumbotron">
     <h1>Latest exchange rates</h1>
   </div>
-  <!-- <div *ngIf="exchange" class="row">
-        <div class ="col-lg-4"></div>
-        <div class ="col-lg-6">
-                    <p>Exchange rates from {{exchange.date}}</p>
-        </div>
-        
-
-    </div> -->
-
+  <div *ngIf="dataIsBeeingFetched">
+    <div class="data-fetch-info container">
+        <app-spinning-wheel></app-spinning-wheel>
+    </div>
+  </div>
   <div *ngIf="exchange">
     <div></div>
     <div></div>

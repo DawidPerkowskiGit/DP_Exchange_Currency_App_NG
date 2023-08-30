@@ -3,6 +3,11 @@
       <div class="jumbotron">
         <h1>Available currencies</h1>
       </div>
+      <div *ngIf="dataIsBeeingFetched">
+        <div class="data-fetch-info container">
+            <app-spinning-wheel></app-spinning-wheel>
+        </div>
+      </div>
       <div>
         <div *ngIf="currencyList">
           <table class="table table-bordered table-hover">

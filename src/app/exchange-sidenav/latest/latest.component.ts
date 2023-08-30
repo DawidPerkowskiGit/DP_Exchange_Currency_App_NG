@@ -37,6 +37,8 @@ export class LatestComponent implements OnInit, OnChanges {
     private dateTransformService: DatePickerToStringService,
   ) {}
 
+  dataIsBeeingFetched: boolean = false;
+
   ngOnChanges(changes: SimpleChanges): void {
     if (isDevMode()) {
       console.log('changes ::: ----', changes);
@@ -89,6 +91,7 @@ export class LatestComponent implements OnInit, OnChanges {
    * Perform REST API call and retieve exchage rates data
    */
   importCurrencyExchangeRates() {
+    this.dataIsBeeingFetched = true;
     this.jsonDataImportService
       .getLatestExchange(this.baseCurrency, this.dateTransformService.transformDateToString(this.exchangeDate))
       .subscribe((data: ExchangesObject) => {
@@ -100,6 +103,8 @@ export class LatestComponent implements OnInit, OnChanges {
         if (isDevMode()) {
           console.log(this.exchange);
         }
+        this.dataIsBeeingFetched = false;
       });
+
   }
 }
