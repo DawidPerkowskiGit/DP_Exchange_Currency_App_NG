@@ -28,6 +28,8 @@ export class LatestComponent implements OnInit, OnChanges {
 
   exchangeDate: Date = new Date();
 
+  currencyPickerTitle: string = "Target currency";
+
   @ViewChild(CurrencyDropdownListComponent)
   currencyDropdownList!: CurrencyDropdownListComponent;
 

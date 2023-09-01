@@ -4,6 +4,7 @@ import { Observable, shareReplay } from 'rxjs';
 import { CurrenciesLocations, ExchangesObject, ListCurrencyResponse } from './currencies-interface';
 import { environment } from 'src/environments/environment';
 import { ApiUrlComposeService } from '../tools/api-url-compose-service';
+import { DatePickerToStringService } from '../tools/date-picker-to-string-service';
 /**
  * Service user to fetch the data form REST API endpoint in JSON format and casts it to TS obejct format
  */
@@ -13,17 +14,27 @@ import { ApiUrlComposeService } from '../tools/api-url-compose-service';
 export class JsonDataImportService {
   constructor(
     private http: HttpClient,
-    private urlComposeService: ApiUrlComposeService
+    private urlComposeService: ApiUrlComposeService,
+    private dateTransformService: DatePickerToStringService,
   ) {}
 
   /**
    * Fetches currencies list data
    * @returns Currencies list in ListCurrencyResponse format
    */
-  getCurrencies(): Observable<ListCurrencyResponse> {
+  getCurrencies(date?: Date): Observable<ListCurrencyResponse> {
+    let parameters: string[] = [];
+    parameters.push(environment.CURRENCIES_URL);
+    if (date != null) {
+      parameters.push(environment.CURRENCY_DATE_ATTRIBUTE +  this.dateTransformService.transformDateToString(date));
+    }
+
+    if (isDevMode()) {
+      console.log('Currencies request parameters: ' + parameters);
+    }
     return this.http
       .get<ListCurrencyResponse>(
-        this.urlComposeService.composeUrl([environment.CURRENCIES_URL])
+        this.urlComposeService.composeUrl(parameters)
       )
       .pipe(shareReplay(1));
   }
@@ -65,7 +76,7 @@ export class JsonDataImportService {
     }
 
     if (isDevMode()) {
-      console.log('Request parameters: ' + parameters);
+      console.log('Exchange request parameters: ' + parameters);
     }
 
     return this.http

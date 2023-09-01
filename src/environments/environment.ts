@@ -12,6 +12,7 @@ export const environment = {
   REQUESTED_CURRENCY_ATTRIBUTE: 'currency=',
   DEFAULT_BASE_CURRENCY: 'EUR',
   DEFAULT_REQUESTED_CURRENCY: 'USD',
+  CURRENCY_DATE_ATTRIBUTE: 'date=',
 };
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.

@@ -13,6 +13,8 @@
     <div class="row">
       <div class="col-sm-4">
         <app-currency-dropdown-list
+        [date]="exchangeDate"
+        [title]="currencyPickerTitle"
           (updateBaseCurrency)="updateBaseCurrency($event)"
         ></app-currency-dropdown-list>
       </div>

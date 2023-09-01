@@ -12,4 +12,5 @@ export const environment = {
   REQUESTED_CURRENCY_ATTRIBUTE: 'currency=',
   DEFAULT_BASE_CURRENCY: 'EUR',
   DEFAULT_REQUESTED_CURRENCY: 'USD',
+  CURRENCY_DATE_ATTRIBUTE: 'date=',
 };

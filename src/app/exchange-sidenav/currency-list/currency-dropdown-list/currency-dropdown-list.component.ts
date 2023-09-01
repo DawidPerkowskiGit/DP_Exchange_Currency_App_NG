@@ -21,13 +21,9 @@ export class CurrencyDropdownListComponent implements OnInit {
 
   selectedCurrency: string = 'EUR';
 
-  // title: string = 'Base currency';
-
-  // @Input() inputTitle(titlein: string) {
-  //   this.title = titlein;
-  // }
-
   @Input() title = 'Base currency';
+
+  @Input() date = new Date();
 
   @Output('updateBaseCurrency') selectedCurrencyEvent: EventEmitter<string> =
     new EventEmitter<string>();
@@ -37,13 +33,16 @@ export class CurrencyDropdownListComponent implements OnInit {
     private copyService: CurrencyObjectsHardCopyService
   ) {}
 
+  /**
+   * Fetches currency list on view initialization
+   */
   ngOnInit(): void {
     if (isDevMode()) {
       console.log(this.currencyList);
     }
 
     this.jsonDataImportService
-      .getCurrencies()
+      .getCurrencies(this.date)
       .subscribe((data: ListCurrencyResponse) => {
         this.currencyList = this.copyService.copy(data);
         if (isDevMode()) {
@@ -52,6 +51,10 @@ export class CurrencyDropdownListComponent implements OnInit {
       });
   }
 
+  /**
+   * Changes base currency
+   * @param currency New base currency
+   */
   selectCurrency(currency: string) {
     this.selectedCurrencyEvent.emit(currency);
     // this.nextCurrency.next(currency);
@@ -63,6 +66,10 @@ export class CurrencyDropdownListComponent implements OnInit {
     }
   }
 
+  /**
+   * Changes title of currency dropdown menu
+   * @param title New title
+   */
   changeTitle(title: string): void {
     this.title = title;
   }
