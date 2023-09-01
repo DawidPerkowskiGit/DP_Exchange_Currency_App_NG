@@ -30,9 +30,6 @@ export class LatestComponent implements OnInit, OnChanges {
 
   currencyPickerTitle: string = "Target currency";
 
-  @ViewChild(CurrencyDropdownListComponent)
-  currencyDropdownList!: CurrencyDropdownListComponent;
-
   constructor(
     private jsonDataImportService: JsonDataImportService,
     private copyService: ExchangesObjectCopyingService,
