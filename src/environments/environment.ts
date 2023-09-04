@@ -11,7 +11,7 @@ export const environment = {
   BASE_CURRENCY_ATTRIBUTE: 'baseCurrency=',
   REQUESTED_CURRENCY_ATTRIBUTE: 'currency=',
   DEFAULT_BASE_CURRENCY: 'EUR',
-  DEFAULT_REQUESTED_CURRENCY: 'USD',
+  DEFAULT_REQUESTED_CURRENCY: 'EUR',
   CURRENCY_DATE_ATTRIBUTE: 'date=',
 };
 // This file can be replaced during build by using the `fileReplacements` array.
