@@ -32,7 +32,15 @@ Users will be able to:
 
 ## Application view
 
+### Exchange view
+
 ![obraz](https://github.com/DawidPerkowskiGit/DP_Exchange_Currency_App_NG/assets/87314459/46ad9d55-67b6-44eb-a2d4-1300f79ffd69)
+
+### Historical rates view
+
+![image](https://github.com/DawidPerkowskiGit/DP_Exchange_Currency_App_NG/assets/87314459/921a2826-7361-4894-b36d-fb995d46e851)
+
+### Available currencies view
 
 ![obraz](https://github.com/DawidPerkowskiGit/DP_Exchange_Currency_App_NG/assets/87314459/d8aebc3f-6082-4c26-9c01-b4118d2b9074)
 
