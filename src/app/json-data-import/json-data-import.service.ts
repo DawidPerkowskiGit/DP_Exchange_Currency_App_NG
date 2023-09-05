@@ -120,4 +120,41 @@ export class JsonDataImportService {
       .get<ExchangesObject[]>(this.urlComposeService.composeUrl(parameters))
       .pipe(shareReplay(1));
   }
+
+  getHistoricalExchangeRatesOfOneCurrencySignleDay(
+    baseCurrency?: string,
+    requestedCurrency?: string,
+    startDate?: string,
+    finishDate?: string,
+  ): Observable<ExchangesObject> {
+    let parameters: string[];
+    parameters = [environment.EXCHANGE_URL];
+    if (environment.production == false) {
+      parameters.push(environment.API_KEY_ATTRIBUTE + environment.NG_API_KEY);
+    }
+
+    if (baseCurrency != null) {
+      parameters.push(environment.BASE_CURRENCY_ATTRIBUTE + baseCurrency);
+    }
+
+    if (requestedCurrency != null) {
+      parameters.push(environment.REQUESTED_CURRENCY_ATTRIBUTE + requestedCurrency);
+    }
+
+    if (startDate != null) {
+      parameters.push(environment.START_DATE_ATTRIBUTE + startDate);
+    }
+
+    if (finishDate != null) {
+      parameters.push(environment.FINISH_DATE_ATTRIBUTE + finishDate);
+    }
+
+    if (isDevMode()) {
+      console.log('Request parameters: ' + parameters);
+    }
+
+    return this.http
+      .get<ExchangesObject>(this.urlComposeService.composeUrl(parameters))
+      .pipe(shareReplay(1));
+  }
 }

@@ -82,13 +82,14 @@ export class ChartComponent implements OnInit {
     let finishDate = this.dateTransformService.transformDateToString(this.finishDate);
     this.dataIsBeeingFetched = true;
 
-    this.jsonDataImportService
-      .getHistoricalExchangeRatesOfOneCurrency(this.baseCurrency, this.requestedCurrency, startDate, finishDate)
-      .subscribe((data: ExchangesObject[]) => {
+    if (startDate === finishDate) {
+      this.jsonDataImportService
+      .getHistoricalExchangeRatesOfOneCurrencySignleDay(this.baseCurrency, this.requestedCurrency, startDate, finishDate)
+      .subscribe((data) => {
         if (isDevMode()) {
           console.log(data);
         }
-        this.exchange$ = this.copyService.copy(data);
+         this.exchange$ = this.copyService.copySingleDate(data);
         // this.exchange$ = data;
         if (isDevMode()) {
           console.log(this.exchange$);
@@ -97,6 +98,25 @@ export class ChartComponent implements OnInit {
         this.yAxisLabel = "Rates based on " + this.baseCurrency;
         this.dataIsBeeingFetched = false;
       });
+    }
+    else {
+          this.jsonDataImportService
+      .getHistoricalExchangeRatesOfOneCurrency(this.baseCurrency, this.requestedCurrency, startDate, finishDate)
+      .subscribe((data: ExchangesObject[]) => {
+        if (isDevMode()) {
+          console.log(data);
+        }
+         this.exchange$ = this.copyService.copy(data);
+        // this.exchange$ = data;
+        if (isDevMode()) {
+          console.log(this.exchange$);
+        }
+        this.chartData = this.chartDataConvertService.convertData(this.exchange$, this.requestedCurrency);
+        this.yAxisLabel = "Rates based on " + this.baseCurrency;
+        this.dataIsBeeingFetched = false;
+      });
+    }
+
 
   }
 
