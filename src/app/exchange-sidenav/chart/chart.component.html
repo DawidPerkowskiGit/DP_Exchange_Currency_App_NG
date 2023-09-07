@@ -6,6 +6,7 @@
     <div class="col-lg-4">
       <app-currency-dropdown-list
         [title]="requestedcurrencyTitle"
+        [selectedCurrency]="requestedCurrency"
         [date]="startDate"
         (updateBaseCurrency)="updateRequestedCurrency($event)"
       ></app-currency-dropdown-list>
@@ -22,6 +23,7 @@
     <div class="col-lg-4">
       <app-currency-date-picker
         [title]="startDateTitle"
+        [initialDate]="startDate"
         (updateExchangeDate)="updateStartDate($event)"
       ></app-currency-date-picker>
     </div>

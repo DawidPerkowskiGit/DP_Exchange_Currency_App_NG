@@ -19,7 +19,7 @@ import { CurrencyObjectsHardCopyService } from 'src/app/tools/currency-objects-h
 export class CurrencyDropdownListComponent implements OnInit {
   currencyList!: ListCurrencyResponse;
 
-  selectedCurrency: string = 'EUR';
+  @Input() selectedCurrency: string = 'EUR';
 
   @Input() title = 'Base currency';
 

@@ -28,9 +28,12 @@ export class CurrencyDatePickerComponent implements OnInit {
 
   @Input() title = 'Exchange date';
 
+  @Input() initialDate = new Date();
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
 
 }

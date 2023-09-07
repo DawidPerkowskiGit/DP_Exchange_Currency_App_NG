@@ -84,6 +84,15 @@ export class JsonDataImportService {
       .pipe(shareReplay(1));
   }
 
+  /**
+   * Fetches historical exchange rate data of single currency from multiple days
+   * @param baseCurrency Exchange rates compared to this currency
+   * @param requestedCurrency Requested currency exchange rates
+   * @param startDate From date
+   * @param finishDate To date
+   * @returns Array of exchange rates data from multiple days
+   */
+
   getHistoricalExchangeRatesOfOneCurrency(
     baseCurrency?: string,
     requestedCurrency?: string,
@@ -120,7 +129,14 @@ export class JsonDataImportService {
       .get<ExchangesObject[]>(this.urlComposeService.composeUrl(parameters))
       .pipe(shareReplay(1));
   }
-
+  /**
+   * Fetches historical exchange rate data of single currency from single day
+   * @param baseCurrency Exchange rates compared to this currency
+   * @param requestedCurrency Requested currency exchange rates
+   * @param startDate From date
+   * @param finishDate To date
+   * @returns Array of exchange rates data from single day
+   */
   getHistoricalExchangeRatesOfOneCurrencySignleDay(
     baseCurrency?: string,
     requestedCurrency?: string,

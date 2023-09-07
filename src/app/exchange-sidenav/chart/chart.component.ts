@@ -74,7 +74,7 @@ export class ChartComponent implements OnInit {
     private chartDataConvertService: LineChartDataManipulationService,) { }
 
   ngOnInit(): void {
-    this.setupDummyDate();
+    this.startDate.setDate(this.startDate.getDate() - 7);
   }
 
   importHistoricalOneCurrencyExchangeRates() {
@@ -118,15 +118,6 @@ export class ChartComponent implements OnInit {
     }
 
 
-  }
-
-  setupDummyDate() {
-    this.startDate.setFullYear(2023);
-    this.startDate.setMonth(6);
-    this.startDate.setDate(1);
-    this.finishDate.setFullYear(2023);
-    this.finishDate.setMonth(6);
-    this.finishDate.setDate(20);
   }
 
   updateBaseCurrency(baseCurrency: string) {
