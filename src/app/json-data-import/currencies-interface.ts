@@ -30,6 +30,9 @@ export class CurrenciesLocations {
 /**
  * Stores data of exchange rates retireved from REST API
  */
+export class ExchangesBody {
+    exchangeList!: ExchangesObject[];
+}
 
 export class ExchangesObject {
     success!: boolean;

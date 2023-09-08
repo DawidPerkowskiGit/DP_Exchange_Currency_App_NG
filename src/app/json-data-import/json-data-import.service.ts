@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, isDevMode } from '@angular/core';
 import { Observable, shareReplay } from 'rxjs';
-import { CurrenciesLocations, ExchangesObject, ListCurrencyResponse } from './currencies-interface';
+import { CurrenciesLocations, ExchangesBody, ExchangesObject, ListCurrencyResponse } from './currencies-interface';
 import { environment } from 'src/environments/environment';
 import { ApiUrlComposeService } from '../tools/api-url-compose-service';
 import { DatePickerToStringService } from '../tools/date-picker-to-string-service';
@@ -60,7 +60,7 @@ export class JsonDataImportService {
   getLatestExchange(
     baseCurrency?: string,
     exchangeDate?: string
-  ): Observable<ExchangesObject> {
+  ): Observable<ExchangesBody> {
     let parameters: string[];
     parameters = [environment.EXCHANGE_URL];
     if (environment.production == false) {
@@ -80,7 +80,7 @@ export class JsonDataImportService {
     }
 
     return this.http
-      .get<ExchangesObject>(this.urlComposeService.composeUrl(parameters))
+      .get<ExchangesBody>(this.urlComposeService.composeUrl(parameters))
       .pipe(shareReplay(1));
   }
 
@@ -98,7 +98,7 @@ export class JsonDataImportService {
     requestedCurrency?: string,
     startDate?: string,
     finishDate?: string,
-  ): Observable<ExchangesObject[]> {
+  ): Observable<ExchangesBody> {
     let parameters: string[];
     parameters = [environment.EXCHANGE_URL];
     if (environment.production == false) {
@@ -126,7 +126,7 @@ export class JsonDataImportService {
     }
 
     return this.http
-      .get<ExchangesObject[]>(this.urlComposeService.composeUrl(parameters))
+      .get<ExchangesBody>(this.urlComposeService.composeUrl(parameters))
       .pipe(shareReplay(1));
   }
   /**

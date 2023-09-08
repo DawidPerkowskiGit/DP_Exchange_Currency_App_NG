@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, isDevMode } from '@angular/core';
-import { ExchangesObject, NgxLineChartData } from 'src/app/json-data-import/currencies-interface';
+import { ExchangesBody, ExchangesObject, NgxLineChartData } from 'src/app/json-data-import/currencies-interface';
 import { JsonDataImportService } from 'src/app/json-data-import/json-data-import.service';
 import { DatePickerToStringService } from 'src/app/tools/date-picker-to-string-service';
 import { HistoricalExchangesOneCurrencyCopySevice } from 'src/app/tools/historical-exchanges-one-currency-copy-service';
@@ -102,7 +102,7 @@ export class ChartComponent implements OnInit {
     else {
           this.jsonDataImportService
       .getHistoricalExchangeRatesOfOneCurrency(this.baseCurrency, this.requestedCurrency, startDate, finishDate)
-      .subscribe((data: ExchangesObject[]) => {
+      .subscribe((data: ExchangesBody) => {
         if (isDevMode()) {
           console.log(data);
         }

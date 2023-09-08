@@ -7,7 +7,7 @@ import {
   isDevMode,
 } from '@angular/core';
 import { JsonDataImportService } from 'src/app/json-data-import/json-data-import.service';
-import { ExchangesObject } from 'src/app/json-data-import/currencies-interface';
+import { ExchangesBody, ExchangesObject } from 'src/app/json-data-import/currencies-interface';
 import { ExchangesObjectCopyingService } from 'src/app/tools/exchange-objects-hard-copy.service';
 import { Observable, Subject, map } from 'rxjs';
 import { CurrencyDropdownListComponent } from '../currency-list/currency-dropdown-list/currency-dropdown-list.component';
@@ -93,7 +93,7 @@ export class LatestComponent implements OnInit, OnChanges {
     this.dataIsBeeingFetched = true;
     this.jsonDataImportService
       .getLatestExchange(this.baseCurrency, this.dateTransformService.transformDateToString(this.exchangeDate))
-      .subscribe((data: ExchangesObject) => {
+      .subscribe((data: ExchangesBody) => {
         if (isDevMode()) {
           console.log(data);
         }

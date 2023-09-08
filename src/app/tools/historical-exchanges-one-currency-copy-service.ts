@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExchangesObject } from '../json-data-import/currencies-interface';
+import { ExchangesBody, ExchangesObject } from '../json-data-import/currencies-interface';
 import { BuildMapService } from './build-map.service';
 
 /**
@@ -16,10 +16,10 @@ export class HistoricalExchangesOneCurrencyCopySevice {
    * @returns Sorted data in ExchangesObject format
    */
 
-  copy(input: ExchangesObject[]): ExchangesObject[] {
+  copy(input: ExchangesBody): ExchangesObject[] {
     let output: ExchangesObject[] = [];
 
-    input.forEach((element) => {
+    input.exchangeList.forEach((element) => {
       let singleObject = new ExchangesObject();
       singleObject.base = element.base;
       singleObject.date = element.date;

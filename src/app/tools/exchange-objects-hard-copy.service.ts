@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExchangesObject } from '../json-data-import/currencies-interface';
+import { ExchangesBody, ExchangesObject } from '../json-data-import/currencies-interface';
 import { BuildMapService } from './build-map.service';
 
 /**
@@ -16,14 +16,20 @@ export class ExchangesObjectCopyingService {
    * @returns Sorted data in ExchangesObject format
    */
 
-  copy(input: ExchangesObject): ExchangesObject {
+  copy(input: ExchangesBody): ExchangesObject {
     let output: ExchangesObject = new ExchangesObject();
 
-    output.success = input.success;
-    output.date = input.date;
-    output.base = input.base;
-    output.rates = new Map<string, number>();
-    output.rates = this.buildMapService.buildMap(input.rates);
+    if (input.exchangeList.length === 1) {
+      output.success = input.exchangeList[0].success;
+      output.date = input.exchangeList[0].date;
+      output.base = input.exchangeList[0].base;
+      output.rates = new Map<string, number>();
+      output.rates = this.buildMapService.buildMap(input.exchangeList[0].rates);
+    }
+    else {
+      throw new Error('invalid exchange body size');
+    }
+
     return output;
   }
 }
