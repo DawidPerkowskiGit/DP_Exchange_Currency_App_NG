@@ -34,6 +34,10 @@ export class ExchangesBody {
     exchangeList!: ExchangesObject[];
 }
 
+/**
+ * Stores body of an exchange rates retireved from REST API
+ */
+
 export class ExchangesObject {
     success!: boolean;
     date!: Date;
@@ -50,7 +54,25 @@ export class NgxLineChartData {
     series: NgxSeriesCollection[] = [];
 }
 
+/**
+ * Stores ngx-line-chart dataset
+ */
+
 export class NgxSeriesCollection {
     name!: string;
     value!: number;
+}
+
+/**
+ * Stores exchange rates calculated from fetched from REST API
+ */
+
+export class CalcuatedExchangeRates {
+    message!: string;
+    exchangeDate!: string;
+    requestedValue!: number;
+    rate!: number;
+    calculatedValue!: number;
+    baseCurrency!: string;
+    requestedCurrency!: string;
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, isDevMode } from '@angular/core';
 import { Observable, shareReplay } from 'rxjs';
-import { CurrenciesLocations, ExchangesBody, ExchangesObject, ListCurrencyResponse } from './currencies-interface';
+import { CalcuatedExchangeRates, CurrenciesLocations, ExchangesBody, ExchangesObject, ListCurrencyResponse } from './currencies-interface';
 import { environment } from 'src/environments/environment';
 import { ApiUrlComposeService } from '../tools/api-url-compose-service';
 import { DatePickerToStringService } from '../tools/date-picker-to-string-service';
@@ -173,4 +173,44 @@ export class JsonDataImportService {
       .get<ExchangesObject>(this.urlComposeService.composeUrl(parameters))
       .pipe(shareReplay(1));
   }
+
+
+
+  getCalculatedRatio(
+    baseCurrency?: string,
+    requestedCurrency?: string,
+    exchangeDate?: string,
+    requestedAmount?: number
+  ): Observable<CalcuatedExchangeRates> {
+    let parameters: string[];
+    parameters = [environment.EXCHANGE_URL];
+    if (environment.production == false) {
+      parameters.push(environment.API_KEY_ATTRIBUTE + environment.NG_API_KEY);
+    }
+
+    if (baseCurrency != null) {
+      parameters.push(environment.BASE_CURRENCY_ATTRIBUTE + baseCurrency);
+    }
+
+    if (requestedCurrency != null) {
+      parameters.push(environment.REQUESTED_CURRENCY_ATTRIBUTE + requestedCurrency);
+    }
+
+    if (requestedAmount != null) {
+      parameters.push(environment.CALCULATE_CURRENCY_ATTRIBUTE + requestedAmount);
+    }
+
+    if (exchangeDate != null) {
+      parameters.push(environment.START_DATE_ATTRIBUTE + exchangeDate);
+    }
+
+    if (isDevMode()) {
+      console.log('Calculate ratio request parameters: ' + parameters);
+    }
+
+    return this.http
+      .get<CalcuatedExchangeRates>(this.urlComposeService.composeUrl(parameters))
+      .pipe(shareReplay(1));
+  }
+
 }

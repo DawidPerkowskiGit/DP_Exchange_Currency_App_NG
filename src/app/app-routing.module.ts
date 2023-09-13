@@ -15,10 +15,6 @@ const routes: Routes = [
     component: HomepageComponent,
   },
   {
-    path: 'about',
-    component: AboutComponent,
-  },
-  {
     path: 'exchange',
     component: ExchangeSidenavComponent,
   },

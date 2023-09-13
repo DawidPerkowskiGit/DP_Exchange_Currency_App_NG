@@ -8,6 +8,7 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { CurrencyListComponent } from './currency-list/currency-list.component';
 import { LatestComponent } from './latest/latest.component';
 import { CurrenciesLocationsComponent } from './currencies-locations/currencies-locations.component';
+import { CalculateRatioComponent } from './calculate-ratio/calculate-ratio.component';
 
 const routes: Routes = [
   {
@@ -32,8 +33,8 @@ const routes: Routes = [
         component: CurrenciesLocationsComponent
       },
       {
-        path: 'chart',
-        component: ChartComponent
+        path: 'calculate',
+        component: CalculateRatioComponent,
       },
       {
         path: '**',

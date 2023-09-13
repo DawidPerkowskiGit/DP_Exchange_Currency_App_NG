@@ -1,10 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { inject } from '@angular/core/testing';
-import { SingleRatesObject } from './currencies-interface';
+import { Component, OnInit } from '@angular/core';
 import { ListCurrencyResponse } from './currencies-interface';
-import { HttpClient, HttpRequest } from '@angular/common/http';
-import { log } from 'console';
-import { Observable, Subject, shareReplay } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-json-data-import',

@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Calculate exchange rates</h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="form-group">
+        <form>
+                  <mat-form-field class="example-full-width">
+          <mat-label>Currency value</mat-label>
+          <input
+            matInput
+            #valueInput
+            placeholder="Ex. 12.50"
+            value="1.0"
+            min="0"
+            type="number"
+            [(ngModel)]="requestedValue"
+            name="requestedValue"
+          />
+        </mat-form-field>
+        </form>
+
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <app-currency-dropdown-list
+        [title]="requestedcurrencyTitle"
+        [selectedCurrency]="requestedCurrency"
+        [date]="exchangeDate"
+        (updateBaseCurrency)="updateRequestedCurrency($event)"
+      ></app-currency-dropdown-list>
+    </div>
+    <div class="col-lg-2">
+      <app-currency-dropdown-list
+        [title]="baseCurrencyTitle"
+        [date]="exchangeDate"
+        (updateBaseCurrency)="updateBaseCurrency($event)"
+      ></app-currency-dropdown-list>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2">
+      <app-currency-date-picker
+        [title]="startDateTitle"
+        [initialDate]="exchangeDate"
+        (updateExchangeDate)="updateStartDate($event)"
+      ></app-currency-date-picker>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="exchange">
+  <div class="panel panel-default">
+    <div class="panel-heading">Conversion result</div>
+    <div class="panel-body">{{exchange.message}}</div>
+  </div>
+
+</div>
+
+<div class="example-button-row">
+  <button mat-button color="primary" (click)="requestData()">Proceed</button>
+</div>
+<div *ngIf="dataIsBeeingFetched">
+  <div class="data-fetch-info container">
+    <app-spinning-wheel></app-spinning-wheel>
+  </div>
+</div>
+
+

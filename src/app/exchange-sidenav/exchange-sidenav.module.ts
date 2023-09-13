@@ -13,6 +13,8 @@ import { LatestModule } from './latest/latest.module';
 import { MainpageModule } from './mainpage/mainpage.module';
 import { CurrenciesLocationsModule } from './currencies-locations/currencies-locations.module';
 import { ChartModule } from './chart/chart.module';
+import { CalculateRatioModule } from './calculate-ratio/calculate-ratio.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { ChartModule } from './chart/chart.module';
     LatestModule,
     CurrenciesLocationsModule,
     ChartModule,
+    CalculateRatioModule,
+    FormsModule,
   ]
 })
 export class ExchangeSidenavModule { 
