@@ -1,5 +1,9 @@
 import { Component, OnInit, ViewChild, isDevMode } from '@angular/core';
-import { ExchangesBody, ExchangesObject, NgxLineChartData } from 'src/app/json-data-import/currencies-interface';
+import {
+  ExchangesBody,
+  ExchangesObject,
+  NgxLineChartData,
+} from 'src/app/json-data-import/currencies-interface';
 import { JsonDataImportService } from 'src/app/json-data-import/json-data-import.service';
 import { DatePickerToStringService } from 'src/app/tools/date-picker-to-string-service';
 import { HistoricalExchangesOneCurrencyCopySevice } from 'src/app/tools/historical-exchanges-one-currency-copy-service';
@@ -11,11 +15,9 @@ import { LineChartDataManipulationService } from 'src/app/tools/line-chart-data-
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.scss']
+  styleUrls: ['./chart.component.scss'],
 })
 export class ChartComponent implements OnInit {
-
-
   exchange$: ExchangesObject[] = [];
 
   baseCurrency = environment.DEFAULT_BASE_CURRENCY;
@@ -26,10 +28,10 @@ export class ChartComponent implements OnInit {
 
   finishDate: Date = new Date();
 
-  requestedcurrencyTitle: string = "Exchange rates of:";
-  baseCurrencyTitle: string = "Compared to:";
-  startDateTitle: string = "Start Date";
-  finishDateTitle: string = "Finish Date";
+  requestedcurrencyTitle: string = 'Exchange rates of:';
+  baseCurrencyTitle: string = 'Compared to:';
+  startDateTitle: string = 'Start Date';
+  finishDateTitle: string = 'Finish Date';
 
   view: [number, number] = [800, 500];
 
@@ -47,79 +49,116 @@ export class ChartComponent implements OnInit {
   autoscale: boolean = true;
 
   colorScheme = {
-    domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
+    domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5'],
   };
 
   chartData!: NgxLineChartData[];
 
   dataIsBeeingFetched: boolean = false;
 
-
+  /**
+   * Ngx charts onSelect event handler
+   * @param data Data to process
+   */
   onSelect(data: any): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }
 
+  /**
+   * Ngx charts onActive event handler
+   * @param data Data to process
+   */
   onActivate(data: any): void {
     console.log('Activate', JSON.parse(JSON.stringify(data)));
   }
+
+  /**
+   * Ngx charts onDeactivate event handler
+   * @param data Data to process
+   */
 
   onDeactivate(data: any): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
 
-
-  constructor(    private jsonDataImportService: JsonDataImportService,
+  constructor(
+    private jsonDataImportService: JsonDataImportService,
     private dateTransformService: DatePickerToStringService,
     private copyService: HistoricalExchangesOneCurrencyCopySevice,
-    private chartDataConvertService: LineChartDataManipulationService,) { }
+    private chartDataConvertService: LineChartDataManipulationService
+  ) {}
 
   ngOnInit(): void {
     this.startDate.setDate(this.startDate.getDate() - 7);
   }
 
+  /**
+   * Fetch exchange rates of single currency and prepare them for displaying
+   */
   importHistoricalOneCurrencyExchangeRates() {
-    let startDate = this.dateTransformService.transformDateToString(this.startDate);
-    let finishDate = this.dateTransformService.transformDateToString(this.finishDate);
+    let startDate = this.dateTransformService.transformDateToString(
+      this.startDate
+    );
+    let finishDate = this.dateTransformService.transformDateToString(
+      this.finishDate
+    );
     this.dataIsBeeingFetched = true;
 
     if (startDate === finishDate) {
       this.jsonDataImportService
-      .getHistoricalExchangeRatesOfOneCurrencySignleDay(this.baseCurrency, this.requestedCurrency, startDate, finishDate)
-      .subscribe((data) => {
-        if (isDevMode()) {
-          console.log(data);
-        }
-         this.exchange$ = this.copyService.copySingleDate(data);
-        // this.exchange$ = data;
-        if (isDevMode()) {
-          console.log(this.exchange$);
-        }
-        this.chartData = this.chartDataConvertService.convertData(this.exchange$, this.requestedCurrency);
-        this.yAxisLabel = "Rates based on " + this.baseCurrency;
-        this.dataIsBeeingFetched = false;
-      });
+        .getHistoricalExchangeRatesOfOneCurrencySignleDay(
+          this.baseCurrency,
+          this.requestedCurrency,
+          startDate,
+          finishDate
+        )
+        .subscribe((data) => {
+          if (isDevMode()) {
+            console.log(data);
+          }
+          this.exchange$ = this.copyService.copySingleDate(data);
+          // this.exchange$ = data;
+          if (isDevMode()) {
+            console.log(this.exchange$);
+          }
+          this.chartData = this.chartDataConvertService.convertData(
+            this.exchange$,
+            this.requestedCurrency
+          );
+          this.yAxisLabel = 'Rates based on ' + this.baseCurrency;
+          this.dataIsBeeingFetched = false;
+        });
+    } else {
+      this.jsonDataImportService
+        .getHistoricalExchangeRatesOfOneCurrency(
+          this.baseCurrency,
+          this.requestedCurrency,
+          startDate,
+          finishDate
+        )
+        .subscribe((data: ExchangesBody) => {
+          if (isDevMode()) {
+            console.log(data);
+          }
+          this.exchange$ = this.copyService.copy(data);
+          // this.exchange$ = data;
+          if (isDevMode()) {
+            console.log(this.exchange$);
+          }
+          this.chartData = this.chartDataConvertService.convertData(
+            this.exchange$,
+            this.requestedCurrency
+          );
+          this.yAxisLabel = 'Rates based on ' + this.baseCurrency;
+          this.dataIsBeeingFetched = false;
+        });
     }
-    else {
-          this.jsonDataImportService
-      .getHistoricalExchangeRatesOfOneCurrency(this.baseCurrency, this.requestedCurrency, startDate, finishDate)
-      .subscribe((data: ExchangesBody) => {
-        if (isDevMode()) {
-          console.log(data);
-        }
-         this.exchange$ = this.copyService.copy(data);
-        // this.exchange$ = data;
-        if (isDevMode()) {
-          console.log(this.exchange$);
-        }
-        this.chartData = this.chartDataConvertService.convertData(this.exchange$, this.requestedCurrency);
-        this.yAxisLabel = "Rates based on " + this.baseCurrency;
-        this.dataIsBeeingFetched = false;
-      });
-    }
-
-
   }
 
+  /**
+   * Update base currency selected in the dropdown menu
+   * @param baseCurrency Base currency to update
+   */
   updateBaseCurrency(baseCurrency: string) {
     if (isDevMode()) {
       console.log('Event log base currency :::: ---', baseCurrency);
@@ -128,14 +167,21 @@ export class ChartComponent implements OnInit {
     this.baseCurrency = baseCurrency;
   }
 
+  /**
+   * Update the requested currency selected in the dropdown menu
+   * @param requestedCurrency Requested currency
+   */
   updateRequestedCurrency(requestedCurrency: string) {
     if (isDevMode()) {
       console.log('Event log requested currency:::: ---', requestedCurrency);
     }
 
     this.requestedCurrency = requestedCurrency;
-
   }
+  /**
+   * Update exchange start date selected in the calendar
+   * @param date Date of exchange to update
+   */
 
   updateStartDate(date: MatDatepickerInputEvent<Date>) {
     if (isDevMode()) {
@@ -146,6 +192,11 @@ export class ChartComponent implements OnInit {
     this.startDate = date.value!;
   }
 
+  /**
+   * Update exchange end date selected in the calendar
+   * @param date Date of exchange to update
+   */
+
   updateFinishDate(date: MatDatepickerInputEvent<Date>) {
     if (isDevMode()) {
       console.log('Previous start date', this.finishDate);
@@ -155,8 +206,11 @@ export class ChartComponent implements OnInit {
     this.finishDate = date.value!;
   }
 
+  /**
+   * Trigger fetching the data from the REST API
+   */
+
   requestData() {
     this.importHistoricalOneCurrencyExchangeRates();
   }
-
 }

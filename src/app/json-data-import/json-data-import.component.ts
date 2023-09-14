@@ -15,10 +15,4 @@ export class JsonDataImportComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getCurrencies(): Observable<ListCurrencyResponse> {
-    return this.http.get<ListCurrencyResponse>(
-      'http://localhost:8080/api/currencies'
-    );
-  }
-
 }

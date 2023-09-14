@@ -6,21 +6,20 @@
     <div class="col-lg-2">
       <div class="form-group">
         <form>
-                  <mat-form-field class="example-full-width">
-          <mat-label>Currency value</mat-label>
-          <input
-            matInput
-            #valueInput
-            placeholder="Ex. 12.50"
-            value="1.0"
-            min="0"
-            type="number"
-            [(ngModel)]="requestedValue"
-            name="requestedValue"
-          />
-        </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Currency value</mat-label>
+            <input
+              matInput
+              #valueInput
+              placeholder="Ex. 12.50"
+              value="1.0"
+              min="0"
+              type="number"
+              [(ngModel)]="requestedValue"
+              name="requestedValue"
+            />
+          </mat-form-field>
         </form>
-
       </div>
     </div>
     <div class="col-lg-2">
@@ -51,11 +50,12 @@
 </div>
 
 <div *ngIf="exchange">
-  <div class="panel panel-default">
-    <div class="panel-heading">Conversion result</div>
-    <div class="panel-body">{{exchange.message}}</div>
+  <div class="result-container">
+    <div class="panel panel-default">
+      <div class="panel-heading">Conversion result</div>
+      <div class="panel-body">{{ exchange.message }}</div>
+    </div>
   </div>
-
 </div>
 
 <div class="example-button-row">
@@ -66,5 +66,3 @@
     <app-spinning-wheel></app-spinning-wheel>
   </div>
 </div>
-
-

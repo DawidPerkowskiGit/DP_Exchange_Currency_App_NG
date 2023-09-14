@@ -6,10 +6,9 @@ import { CurrencyLocationsObjectsHardCopyService } from 'src/app/tools/currency-
 @Component({
   selector: 'app-currencies-locations',
   templateUrl: './currencies-locations.component.html',
-  styleUrls: ['./currencies-locations.component.scss']
+  styleUrls: ['./currencies-locations.component.scss'],
 })
 export class CurrenciesLocationsComponent implements OnInit {
-
   currencyList: CurrenciesLocations[] = [];
 
   constructor(
@@ -17,13 +16,10 @@ export class CurrenciesLocationsComponent implements OnInit {
     private copyService: CurrencyLocationsObjectsHardCopyService
   ) {}
 
-  
   dataIsBeeingFetched: boolean = false;
-  
-
 
   /**
-   * Get currencies and locations data
+   * Get currencies and locations data on view init
    */
 
   ngOnInit(): void {
@@ -37,11 +33,12 @@ export class CurrenciesLocationsComponent implements OnInit {
       .subscribe((data: CurrenciesLocations[]) => {
         this.currencyList = this.copyService.copy(data);
         if (isDevMode()) {
-          console.log("Currency and Locations List after copying ::::: ------",this.currencyList);
+          console.log(
+            'Currency and Locations List after copying ::::: ------',
+            this.currencyList
+          );
         }
         this.dataIsBeeingFetched = false;
       });
-
   }
-
 }

@@ -174,7 +174,14 @@ export class JsonDataImportService {
       .pipe(shareReplay(1));
   }
 
-
+/**
+ * Fetch calculated currency value based on input value and other parameters.
+ * @param baseCurrency Exchange rates relative to the base currency
+ * @param requestedCurrency Result exchange rates
+ * @param exchangeDate Date of exchange
+ * @param requestedAmount Amount of currency toi be calculated
+ * @returns Obejct which stores all the data fetched from the API service
+ */
 
   getCalculatedRatio(
     baseCurrency?: string,

@@ -17,6 +17,9 @@ export class CurrencyListComponent implements OnInit {
     private copyService: CurrencyObjectsHardCopyService
   ) {}
 
+  /**
+   * Get currencies list from the API on the view initalization
+   */
   ngOnInit(): void {
     if (isDevMode()) {
       console.log(this.currencyList);

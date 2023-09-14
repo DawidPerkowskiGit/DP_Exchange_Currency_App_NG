@@ -15,6 +15,11 @@ import {
 export class CalcuatedExchangeRatesDataService {
   constructor() {}
 
+  /**
+   * Copy the Calcualted exchange rates data
+   * @param input Exchange rates date
+   * @returns copied data
+   */
   copy(input: CalcuatedExchangeRates): CalcuatedExchangeRates {
     let output: CalcuatedExchangeRates = new CalcuatedExchangeRates();
     output.message = input.message;
