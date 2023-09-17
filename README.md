@@ -18,16 +18,11 @@ Angular 13, RxJS, Bootstrap, Angular Materials, Docker, REST API.
 
 ## More detailed information about modules
 
-Users now are able to:
-- view table of latest currency exchange rates, based on Euro
-- view list of available currencies
-- change the base currency from EUR to any other available
-- specify the exchange date
-
-Users will be able to:
-- view line charts of currency rates in specified time scope
-- compare exchange rates of few currencies
-
+Users are able to:
+- view table of latest currency exchange rates, by selecting base currency and date
+- view list of available currencies and locations they can be used in
+- view how exchange rates of selected currency changed in specifes scope of time
+- calculate exchange rates based on provided input
 
 
 ## Application view
@@ -44,6 +39,9 @@ Users will be able to:
 
 ![obraz](https://github.com/DawidPerkowskiGit/DP_Exchange_Currency_App_NG/assets/87314459/d8aebc3f-6082-4c26-9c01-b4118d2b9074)
 
+### Calculate exchange rates
+
+![obraz](https://github.com/DawidPerkowskiGit/DP_Exchange_Currency_App_NG/assets/87314459/dd85fce5-f607-4783-b350-3527f868aa73)
 
 
 
