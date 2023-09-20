@@ -23,6 +23,7 @@ Users are able to:
 - view list of available currencies and locations they can be used in
 - view how exchange rates of selected currency changed in specifes scope of time
 - calculate exchange rates based on provided input
+- compare exchange rates of multiple currencies
 
 
 ## Application view
