@@ -33,7 +33,7 @@ export class CalculateRatioComponent implements OnInit, OnChanges {
   rateControl = new FormControl('', [Validators.min(0)]);
 
   requestedcurrencyTitle: string = 'Requested currency';
-  baseCurrencyTitle: string = 'Compared to';
+  baseCurrencyTitle: string = 'Base currency';
   startDateTitle: string = 'Exchange date from';
 
   dataIsBeeingFetched: boolean = false;

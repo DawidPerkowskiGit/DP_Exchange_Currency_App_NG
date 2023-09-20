@@ -22,19 +22,20 @@
         </form>
       </div>
     </div>
+
+    <div class="col-lg-2">
+      <app-currency-dropdown-list
+        [title]="baseCurrencyTitle"
+        [date]="exchangeDate"
+        (updateBaseCurrency)="updateBaseCurrency($event)"
+      ></app-currency-dropdown-list>
+    </div>
     <div class="col-lg-2">
       <app-currency-dropdown-list
         [title]="requestedcurrencyTitle"
         [selectedCurrency]="requestedCurrency"
         [date]="exchangeDate"
         (updateBaseCurrency)="updateRequestedCurrency($event)"
-      ></app-currency-dropdown-list>
-    </div>
-    <div class="col-lg-2">
-      <app-currency-dropdown-list
-        [title]="baseCurrencyTitle"
-        [date]="exchangeDate"
-        (updateBaseCurrency)="updateBaseCurrency($event)"
       ></app-currency-dropdown-list>
     </div>
   </div>

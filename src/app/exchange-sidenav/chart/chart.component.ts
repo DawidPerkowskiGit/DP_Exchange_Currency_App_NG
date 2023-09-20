@@ -47,6 +47,8 @@ export class ChartComponent implements OnInit {
   yAxisLabel: string = 'Rate';
   timeline: boolean = true;
   autoscale: boolean = true;
+  yScaleMin: number = 1.0;
+  yScaleMax: number = 5.0;
 
   colorScheme = {
     domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5'],
@@ -117,15 +119,19 @@ export class ChartComponent implements OnInit {
             console.log(data);
           }
           this.exchange$ = this.copyService.copySingleDate(data);
-          // this.exchange$ = data;
           if (isDevMode()) {
             console.log(this.exchange$);
           }
+          // this.chartData = this.chartDataConvertService.convertData(
+          //   this.exchange$,
+          //   this.requestedCurrency
+          // );
           this.chartData = this.chartDataConvertService.convertData(
             this.exchange$,
-            this.requestedCurrency
           );
           this.yAxisLabel = 'Rates based on ' + this.baseCurrency;
+          [this.yScaleMin, this.yScaleMax] = this.findMinAndMaxValueSingleDay(data);
+          [this.yScaleMin, this.yScaleMax] = this.calculateNewMinAndMax(this.yScaleMin, this.yScaleMax);
           this.dataIsBeeingFetched = false;
         });
     } else {
@@ -147,9 +153,11 @@ export class ChartComponent implements OnInit {
           }
           this.chartData = this.chartDataConvertService.convertData(
             this.exchange$,
-            this.requestedCurrency
+            // this.requestedCurrency
           );
           this.yAxisLabel = 'Rates based on ' + this.baseCurrency;
+          [this.yScaleMin, this.yScaleMax] = this.findMinAndMaxValue(this.exchange$);
+          [this.yScaleMin, this.yScaleMax] = this.calculateNewMinAndMax(this.yScaleMin, this.yScaleMax);
           this.dataIsBeeingFetched = false;
         });
     }
@@ -177,6 +185,7 @@ export class ChartComponent implements OnInit {
     }
 
     this.requestedCurrency = requestedCurrency;
+    // this.requestedCurrency+","+requestedCurrency;
   }
   /**
    * Update exchange start date selected in the calendar
@@ -212,5 +221,51 @@ export class ChartComponent implements OnInit {
 
   requestData() {
     this.importHistoricalOneCurrencyExchangeRates();
+  }
+
+  findMinAndMaxValue(data: ExchangesObject[]): [number, number] {
+    let maxValue: number = 0;
+    let minValue: number = 999999999;
+    data.forEach(element => {
+      for (let [key, value] of element.rates) {
+        if (value > maxValue) {
+          maxValue = value;
+        }
+        if (value < minValue) {
+          minValue = value;
+        }
+      }
+    });
+    return [minValue, maxValue];
+  }
+
+  findMinAndMaxValueSingleDay(data: ExchangesObject): [number, number] {
+    let maxValue: number = 0;
+    let minValue: number = 999999999;
+      for (let [key, value] of data.rates) {
+        if (value > maxValue) {
+          maxValue = value;
+        }
+        if (value < minValue) {
+          minValue = value;
+        }
+      }
+    return [minValue, maxValue];
+  }
+
+  // calculateNewMinAndMax(minValue: number, maxValue: number): [number, number] {
+  //   if (minValue < 0 ) {
+  //     minValue = 0;
+  //   }
+  //   let difference = maxValue - minValue > minValue ? minValue : maxValue - minValue;
+  //   let offset = difference < minValue ? difference : minValue
+  //   return [minValue - 2*offset > 0 ? minValue - 2*offset : 0, maxValue + 2*offset]
+  // }
+
+  calculateNewMinAndMax(minValue: number, maxValue: number): [number, number] {
+    let offset = maxValue * 0.2;
+    let newMinValue = minValue - offset > 0 ? minValue - offset : -0.01;
+    let newMaxValue = maxValue + offset;
+    return [newMinValue, newMaxValue]
   }
 }

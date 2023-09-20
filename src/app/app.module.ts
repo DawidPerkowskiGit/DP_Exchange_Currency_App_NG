@@ -27,6 +27,7 @@ import { CurrencyDatePickerModule } from './exchange-sidenav/currency-list/curre
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { CurrenciesDropdownMultichoiceModule } from './exchange-sidenav/currency-list/currencies-dropdown-multichoice/currencies-dropdown-multichoice.module';
 
 @NgModule({
   declarations: [

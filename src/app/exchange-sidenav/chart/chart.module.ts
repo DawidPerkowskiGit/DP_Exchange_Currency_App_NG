@@ -7,6 +7,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SpinningWheelModule } from '../spinning-wheel/spinning-wheel.module';
+import { CurrenciesDropdownMultichoiceModule } from '../currency-list/currencies-dropdown-multichoice/currencies-dropdown-multichoice.module';
+import { CurrenciesDropdownMultichoiceComponent } from '../currency-list/currencies-dropdown-multichoice/currencies-dropdown-multichoice.component';
 
 
 
@@ -21,6 +23,7 @@ import { SpinningWheelModule } from '../spinning-wheel/spinning-wheel.module';
     NgxChartsModule,
     BrowserAnimationsModule,
     SpinningWheelModule,
-  ]
+    CurrenciesDropdownMultichoiceModule,
+  ],
 })
 export class ChartModule { }

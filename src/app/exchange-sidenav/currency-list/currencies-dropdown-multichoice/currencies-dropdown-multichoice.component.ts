@@ -1,25 +1,16 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  isDevMode,
-} from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Component, EventEmitter, Input, OnInit, Output, isDevMode } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ListCurrencyResponse } from 'src/app/json-data-import/currencies-interface';
 import { JsonDataImportService } from 'src/app/json-data-import/json-data-import.service';
 import { CurrencyObjectsHardCopyService } from 'src/app/tools/currency-objects-hard-copy.service';
 
 @Component({
-  selector: 'app-currency-dropdown-list',
-  templateUrl: './currency-dropdown-list.component.html',
-  styleUrls: ['./currency-dropdown-list.component.scss'],
+  selector: 'app-currencies-dropdown-multichoice',
+  templateUrl: './currencies-dropdown-multichoice.component.html',
+  styleUrls: ['./currencies-dropdown-multichoice.component.scss']
 })
-export class CurrencyDropdownListComponent implements OnInit {
+export class CurrenciesDropdownMultichoiceComponent implements OnInit {
   currencyList!: ListCurrencyResponse;
-
-  currencyNames: string[] = [];
 
   @Input() selectedCurrency: string = 'EUR';
 
@@ -29,6 +20,8 @@ export class CurrencyDropdownListComponent implements OnInit {
 
   @Output('updateBaseCurrency') selectedCurrencyEvent: EventEmitter<string> =
     new EventEmitter<string>();
+
+    curernciesForm = new FormControl();
 
   constructor(
     private jsonDataImportService: JsonDataImportService,
@@ -75,4 +68,5 @@ export class CurrencyDropdownListComponent implements OnInit {
   changeTitle(title: string): void {
     this.title = title;
   }
+
 }

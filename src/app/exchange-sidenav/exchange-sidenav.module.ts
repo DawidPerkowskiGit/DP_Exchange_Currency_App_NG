@@ -15,6 +15,7 @@ import { CurrenciesLocationsModule } from './currencies-locations/currencies-loc
 import { ChartModule } from './chart/chart.module';
 import { CalculateRatioModule } from './calculate-ratio/calculate-ratio.module';
 import { FormsModule } from '@angular/forms';
+import { CurrenciesDropdownMultichoiceModule } from './currency-list/currencies-dropdown-multichoice/currencies-dropdown-multichoice.module';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { FormsModule } from '@angular/forms';
     ChartModule,
     CalculateRatioModule,
     FormsModule,
+    CurrenciesDropdownMultichoiceModule
   ]
 })
 export class ExchangeSidenavModule { 
