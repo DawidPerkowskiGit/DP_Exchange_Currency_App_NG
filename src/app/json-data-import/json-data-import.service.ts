@@ -1,7 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, isDevMode } from '@angular/core';
 import { Observable, shareReplay } from 'rxjs';
-import { CalcuatedExchangeRates, CurrenciesLocations, ExchangesBody, ExchangesObject, ListCurrencyResponse } from './currencies-interface';
+import {
+  CalcuatedExchangeRates,
+  CurrenciesLocations,
+  ExchangesBody,
+  ExchangesObject,
+  ListCurrencyResponse,
+} from './currencies-interface';
 import { environment } from 'src/environments/environment';
 import { ApiUrlComposeService } from '../tools/api-url-compose-service';
 import { DatePickerToStringService } from '../tools/date-picker-to-string-service';
@@ -15,7 +21,7 @@ export class JsonDataImportService {
   constructor(
     private http: HttpClient,
     private urlComposeService: ApiUrlComposeService,
-    private dateTransformService: DatePickerToStringService,
+    private dateTransformService: DatePickerToStringService
   ) {}
 
   /**
@@ -26,16 +32,17 @@ export class JsonDataImportService {
     let parameters: string[] = [];
     parameters.push(environment.CURRENCIES_URL);
     if (date != null) {
-      parameters.push(environment.CURRENCY_DATE_ATTRIBUTE +  this.dateTransformService.transformDateToString(date));
+      parameters.push(
+        environment.CURRENCY_DATE_ATTRIBUTE +
+          this.dateTransformService.transformDateToString(date)
+      );
     }
 
     if (isDevMode()) {
       console.log('Currencies request parameters: ' + parameters);
     }
     return this.http
-      .get<ListCurrencyResponse>(
-        this.urlComposeService.composeUrl(parameters)
-      )
+      .get<ListCurrencyResponse>(this.urlComposeService.composeUrl(parameters))
       .pipe(shareReplay(1));
   }
 
@@ -45,10 +52,10 @@ export class JsonDataImportService {
    */
   getCurrenciesAndLocations(): Observable<CurrenciesLocations[]> {
     return this.http
-    .get<CurrenciesLocations[]>(
-      this.urlComposeService.composeUrl([environment.LOCATIONS_URL])
-    )
-    .pipe(shareReplay(1));
+      .get<CurrenciesLocations[]>(
+        this.urlComposeService.composeUrl([environment.LOCATIONS_URL])
+      )
+      .pipe(shareReplay(1));
   }
 
   /**
@@ -97,7 +104,7 @@ export class JsonDataImportService {
     baseCurrency?: string,
     requestedCurrency?: string,
     startDate?: string,
-    finishDate?: string,
+    finishDate?: string
   ): Observable<ExchangesBody> {
     let parameters: string[];
     parameters = [environment.EXCHANGE_URL];
@@ -110,7 +117,9 @@ export class JsonDataImportService {
     }
 
     if (requestedCurrency != null) {
-      parameters.push(environment.REQUESTED_CURRENCY_ATTRIBUTE + requestedCurrency);
+      parameters.push(
+        environment.REQUESTED_CURRENCY_ATTRIBUTE + requestedCurrency
+      );
     }
 
     if (startDate != null) {
@@ -141,7 +150,7 @@ export class JsonDataImportService {
     baseCurrency?: string,
     requestedCurrency?: string,
     startDate?: string,
-    finishDate?: string,
+    finishDate?: string
   ): Observable<ExchangesObject> {
     let parameters: string[];
     parameters = [environment.EXCHANGE_URL];
@@ -154,7 +163,9 @@ export class JsonDataImportService {
     }
 
     if (requestedCurrency != null) {
-      parameters.push(environment.REQUESTED_CURRENCY_ATTRIBUTE + requestedCurrency);
+      parameters.push(
+        environment.REQUESTED_CURRENCY_ATTRIBUTE + requestedCurrency
+      );
     }
 
     if (startDate != null) {
@@ -174,14 +185,14 @@ export class JsonDataImportService {
       .pipe(shareReplay(1));
   }
 
-/**
- * Fetch calculated currency value based on input value and other parameters.
- * @param baseCurrency Exchange rates relative to the base currency
- * @param requestedCurrency Result exchange rates
- * @param exchangeDate Date of exchange
- * @param requestedAmount Amount of currency toi be calculated
- * @returns Obejct which stores all the data fetched from the API service
- */
+  /**
+   * Fetch calculated currency value based on input value and other parameters.
+   * @param baseCurrency Exchange rates relative to the base currency
+   * @param requestedCurrency Result exchange rates
+   * @param exchangeDate Date of exchange
+   * @param requestedAmount Amount of currency toi be calculated
+   * @returns Obejct which stores all the data fetched from the API service
+   */
 
   getCalculatedRatio(
     baseCurrency?: string,
@@ -200,11 +211,15 @@ export class JsonDataImportService {
     }
 
     if (requestedCurrency != null) {
-      parameters.push(environment.REQUESTED_CURRENCY_ATTRIBUTE + requestedCurrency);
+      parameters.push(
+        environment.REQUESTED_CURRENCY_ATTRIBUTE + requestedCurrency
+      );
     }
 
     if (requestedAmount != null) {
-      parameters.push(environment.CALCULATE_CURRENCY_ATTRIBUTE + requestedAmount);
+      parameters.push(
+        environment.CALCULATE_CURRENCY_ATTRIBUTE + requestedAmount
+      );
     }
 
     if (exchangeDate != null) {
@@ -216,8 +231,9 @@ export class JsonDataImportService {
     }
 
     return this.http
-      .get<CalcuatedExchangeRates>(this.urlComposeService.composeUrl(parameters))
+      .get<CalcuatedExchangeRates>(
+        this.urlComposeService.composeUrl(parameters)
+      )
       .pipe(shareReplay(1));
   }
-
 }

@@ -18,11 +18,14 @@ export class CurrenciesLocationsComponent implements OnInit {
 
   dataIsBeeingFetched: boolean = false;
 
-  /**
-   * Get currencies and locations data on view init
-   */
-
   ngOnInit(): void {
+    this.fetchdata();
+  }
+
+  /**
+   * Fetch data from REST API
+   */
+  fetchdata(): void {
     if (isDevMode()) {
       console.log(this.currencyList);
     }

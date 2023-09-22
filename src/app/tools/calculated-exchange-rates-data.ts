@@ -1,7 +1,7 @@
 import { Injectable, isDevMode } from '@angular/core';
 import { BuildMapService } from './build-map.service';
 import {
-    CalcuatedExchangeRates,
+  CalcuatedExchangeRates,
   CurrenciesLocations,
   CurrencyEntry,
   ListCurrencyResponse,

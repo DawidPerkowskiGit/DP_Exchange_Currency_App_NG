@@ -35,10 +35,13 @@ export class CurrencyDropdownListComponent implements OnInit {
     private copyService: CurrencyObjectsHardCopyService
   ) {}
 
-  /**
-   * Fetches currency list on view initialization
-   */
   ngOnInit(): void {
+    this.fetchData();
+  }
+  /**
+   * Fetches currency list
+   */
+  fetchData(): void {
     if (isDevMode()) {
       console.log(this.currencyList);
     }

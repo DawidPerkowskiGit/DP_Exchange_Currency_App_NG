@@ -58,6 +58,8 @@ export class ChartComponent implements OnInit {
 
   dataIsBeeingFetched: boolean = false;
 
+  dropDownMultichoiceLoaded: boolean = false;
+
   /**
    * Ngx charts onSelect event handler
    * @param data Data to process
@@ -127,11 +129,15 @@ export class ChartComponent implements OnInit {
           //   this.requestedCurrency
           // );
           this.chartData = this.chartDataConvertService.convertData(
-            this.exchange$,
+            this.exchange$
           );
           this.yAxisLabel = 'Rates based on ' + this.baseCurrency;
-          [this.yScaleMin, this.yScaleMax] = this.findMinAndMaxValueSingleDay(data);
-          [this.yScaleMin, this.yScaleMax] = this.calculateNewMinAndMax(this.yScaleMin, this.yScaleMax);
+          [this.yScaleMin, this.yScaleMax] =
+            this.findMinAndMaxValueSingleDay(data);
+          [this.yScaleMin, this.yScaleMax] = this.calculateNewMinAndMax(
+            this.yScaleMin,
+            this.yScaleMax
+          );
           this.dataIsBeeingFetched = false;
         });
     } else {
@@ -152,12 +158,17 @@ export class ChartComponent implements OnInit {
             console.log(this.exchange$);
           }
           this.chartData = this.chartDataConvertService.convertData(
-            this.exchange$,
+            this.exchange$
             // this.requestedCurrency
           );
           this.yAxisLabel = 'Rates based on ' + this.baseCurrency;
-          [this.yScaleMin, this.yScaleMax] = this.findMinAndMaxValue(this.exchange$);
-          [this.yScaleMin, this.yScaleMax] = this.calculateNewMinAndMax(this.yScaleMin, this.yScaleMax);
+          [this.yScaleMin, this.yScaleMax] = this.findMinAndMaxValue(
+            this.exchange$
+          );
+          [this.yScaleMin, this.yScaleMax] = this.calculateNewMinAndMax(
+            this.yScaleMin,
+            this.yScaleMax
+          );
           this.dataIsBeeingFetched = false;
         });
     }
@@ -223,10 +234,16 @@ export class ChartComponent implements OnInit {
     this.importHistoricalOneCurrencyExchangeRates();
   }
 
+  /**
+   * Finds min and max values of the exchange rates
+   * @param data Data to search trough
+   * @returns min and max values of the exchange rates
+   */
+
   findMinAndMaxValue(data: ExchangesObject[]): [number, number] {
     let maxValue: number = 0;
     let minValue: number = 999999999;
-    data.forEach(element => {
+    data.forEach((element) => {
       for (let [key, value] of element.rates) {
         if (value > maxValue) {
           maxValue = value;
@@ -239,33 +256,36 @@ export class ChartComponent implements OnInit {
     return [minValue, maxValue];
   }
 
+  /**
+   * Finds min and max values of the exchange rates
+   * @param data Data to search trough
+   * @returns min and max values of the exchange rates
+   */
+
   findMinAndMaxValueSingleDay(data: ExchangesObject): [number, number] {
     let maxValue: number = 0;
     let minValue: number = 999999999;
-      for (let [key, value] of data.rates) {
-        if (value > maxValue) {
-          maxValue = value;
-        }
-        if (value < minValue) {
-          minValue = value;
-        }
+    for (let [key, value] of data.rates) {
+      if (value > maxValue) {
+        maxValue = value;
       }
+      if (value < minValue) {
+        minValue = value;
+      }
+    }
     return [minValue, maxValue];
   }
 
-  // calculateNewMinAndMax(minValue: number, maxValue: number): [number, number] {
-  //   if (minValue < 0 ) {
-  //     minValue = 0;
-  //   }
-  //   let difference = maxValue - minValue > minValue ? minValue : maxValue - minValue;
-  //   let offset = difference < minValue ? difference : minValue
-  //   return [minValue - 2*offset > 0 ? minValue - 2*offset : 0, maxValue + 2*offset]
-  // }
-
+  /**
+   * Calculates the minimum and maximum values for the chart scale
+   * @param minValue minimum value
+   * @param maxValue maximum value
+   * @returns minimum and maximum for the chart scale
+   */
   calculateNewMinAndMax(minValue: number, maxValue: number): [number, number] {
     let offset = maxValue * 0.2;
     let newMinValue = minValue - offset > 0 ? minValue - offset : -0.01;
     let newMaxValue = maxValue + offset;
-    return [newMinValue, newMaxValue]
+    return [newMinValue, newMaxValue];
   }
 }

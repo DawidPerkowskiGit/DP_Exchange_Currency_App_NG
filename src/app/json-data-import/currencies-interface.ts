@@ -2,36 +2,36 @@
  * Stores data of currency list retireved from REST API
  */
 export class ListCurrencyResponse {
-    currencies: CurrencyEntry[] = [];
+  currencies: CurrencyEntry[] = [];
 }
 
 /**
  * Defines how the currency list is structured
  */
-export class CurrencyEntry{
-    isoName!: string;
-    fullName!: string;
+export class CurrencyEntry {
+  isoName!: string;
+  fullName!: string;
 
-    constructor(isoName: string, fullName: string) {
-        this.isoName = isoName;
-        this.fullName = fullName;
-    }
+  constructor(isoName: string, fullName: string) {
+    this.isoName = isoName;
+    this.fullName = fullName;
+  }
 }
 
 /**
  * Stores data of currencies and locations retireved from REST API
  */
 export class CurrenciesLocations {
-    isoName!: string;
-    fullName!: string;
-    locationList!: string[];
+  isoName!: string;
+  fullName!: string;
+  locationList!: string[];
 }
 
 /**
  * Stores data of exchange rates retireved from REST API
  */
 export class ExchangesBody {
-    exchangeList!: ExchangesObject[];
+  exchangeList!: ExchangesObject[];
 }
 
 /**
@@ -39,10 +39,10 @@ export class ExchangesBody {
  */
 
 export class ExchangesObject {
-    success!: boolean;
-    date!: Date;
-    base!: string;
-    rates!: Map<string, number>;
+  success!: boolean;
+  date!: Date;
+  base!: string;
+  rates!: Map<string, number>;
 }
 
 /**
@@ -50,8 +50,8 @@ export class ExchangesObject {
  */
 
 export class NgxLineChartData {
-    name!: string;
-    series: NgxSeriesCollection[] = [];
+  name!: string;
+  series: NgxSeriesCollection[] = [];
 }
 
 /**
@@ -59,8 +59,8 @@ export class NgxLineChartData {
  */
 
 export class NgxSeriesCollection {
-    name!: string;
-    value!: number;
+  name!: string;
+  value!: number;
 }
 
 /**
@@ -68,11 +68,11 @@ export class NgxSeriesCollection {
  */
 
 export class CalcuatedExchangeRates {
-    message!: string;
-    exchangeDate!: string;
-    requestedValue!: number;
-    rate!: number;
-    calculatedValue!: number;
-    baseCurrency!: string;
-    requestedCurrency!: string;
+  message!: string;
+  exchangeDate!: string;
+  requestedValue!: number;
+  rate!: number;
+  calculatedValue!: number;
+  baseCurrency!: string;
+  requestedCurrency!: string;
 }

@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ExchangesBody, ExchangesObject } from '../json-data-import/currencies-interface';
+import {
+  ExchangesBody,
+  ExchangesObject,
+} from '../json-data-import/currencies-interface';
 import { BuildMapService } from './build-map.service';
 
 /**
@@ -11,7 +14,7 @@ import { BuildMapService } from './build-map.service';
 export class HistoricalExchangesOneCurrencyCopySevice {
   constructor(private buildMapService: BuildMapService) {}
   /**
-   * Copies subscribed exchange data and sortes them by exchange date.
+   * Copies subscribed exchange data and sorts them by exchange date.
    * @param input Data fetched from subscription
    * @returns Sorted data in ExchangesObject format
    */
@@ -29,6 +32,12 @@ export class HistoricalExchangesOneCurrencyCopySevice {
     });
     return output;
   }
+
+    /**
+   * Copies subscribed exchange data from a single day and sorts them by exchange date.
+   * @param input Data fetched from subscription
+   * @returns Sorted data in ExchangesObject format
+   */
 
   copySingleDate(input: ExchangesObject): ExchangesObject[] {
     let output: ExchangesObject[] = [];

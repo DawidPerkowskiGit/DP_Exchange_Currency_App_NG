@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output, isDevMode } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  isDevMode,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ListCurrencyResponse } from 'src/app/json-data-import/currencies-interface';
 import { JsonDataImportService } from 'src/app/json-data-import/json-data-import.service';
@@ -7,7 +14,7 @@ import { CurrencyObjectsHardCopyService } from 'src/app/tools/currency-objects-h
 @Component({
   selector: 'app-currencies-dropdown-multichoice',
   templateUrl: './currencies-dropdown-multichoice.component.html',
-  styleUrls: ['./currencies-dropdown-multichoice.component.scss']
+  styleUrls: ['./currencies-dropdown-multichoice.component.scss'],
 })
 export class CurrenciesDropdownMultichoiceComponent implements OnInit {
   currencyList!: ListCurrencyResponse;
@@ -21,17 +28,24 @@ export class CurrenciesDropdownMultichoiceComponent implements OnInit {
   @Output('updateBaseCurrency') selectedCurrencyEvent: EventEmitter<string> =
     new EventEmitter<string>();
 
-    curernciesForm = new FormControl();
+  @Output() dataLoaded: boolean = false;
+
+  curernciesForm = new FormControl();
 
   constructor(
     private jsonDataImportService: JsonDataImportService,
     private copyService: CurrencyObjectsHardCopyService
   ) {}
 
-  /**
-   * Fetches currency list on view initialization
-   */
   ngOnInit(): void {
+    this.fetchData();
+  }
+
+  /**
+   * Fetches currency list
+   */
+  fetchData(): void {
+    this.dataLoaded = false;
     if (isDevMode()) {
       console.log(this.currencyList);
     }
@@ -44,6 +58,7 @@ export class CurrenciesDropdownMultichoiceComponent implements OnInit {
           console.log(this.currencyList);
         }
       });
+    this.dataLoaded = true;
   }
 
   /**
@@ -68,5 +83,4 @@ export class CurrenciesDropdownMultichoiceComponent implements OnInit {
   changeTitle(title: string): void {
     this.title = title;
   }
-
 }

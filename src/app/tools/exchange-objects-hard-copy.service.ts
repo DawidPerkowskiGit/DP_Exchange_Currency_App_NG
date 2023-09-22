@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ExchangesBody, ExchangesObject } from '../json-data-import/currencies-interface';
+import {
+  ExchangesBody,
+  ExchangesObject,
+} from '../json-data-import/currencies-interface';
 import { BuildMapService } from './build-map.service';
 
 /**
@@ -25,8 +28,7 @@ export class ExchangesObjectCopyingService {
       output.base = input.exchangeList[0].base;
       output.rates = new Map<string, number>();
       output.rates = this.buildMapService.buildMap(input.exchangeList[0].rates);
-    }
-    else {
+    } else {
       throw new Error('invalid exchange body size');
     }
 

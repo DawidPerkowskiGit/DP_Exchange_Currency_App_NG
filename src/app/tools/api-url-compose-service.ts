@@ -31,7 +31,7 @@ export class ApiUrlComposeService {
       }
     }
 
-    console.log("Composed URL::: ",url);
+    console.log('Composed URL::: ', url);
     return url;
   }
 }

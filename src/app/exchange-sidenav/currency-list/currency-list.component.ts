@@ -17,10 +17,14 @@ export class CurrencyListComponent implements OnInit {
     private copyService: CurrencyObjectsHardCopyService
   ) {}
 
-  /**
-   * Get currencies list from the API on the view initalization
-   */
   ngOnInit(): void {
+    this.fetchData();
+  }
+
+  /**
+   * Get currencies list from the API
+   */
+  fetchData(): void {
     if (isDevMode()) {
       console.log(this.currencyList);
     }
@@ -30,10 +34,8 @@ export class CurrencyListComponent implements OnInit {
       .subscribe((data: ListCurrencyResponse) => {
         this.currencyList = this.copyService.copy(data);
         if (isDevMode()) {
-          console.log("Currency List after copying",this.currencyList);
+          console.log('Currency List after copying', this.currencyList);
         }
       });
   }
-
-
 }
