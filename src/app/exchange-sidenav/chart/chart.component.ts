@@ -29,7 +29,7 @@ export class ChartComponent implements OnInit {
   finishDate: Date = new Date();
 
   requestedcurrencyTitle: string = 'Exchange rates of:';
-  baseCurrencyTitle: string = 'Compared to:';
+  baseCurrencyTitle: string = 'Convert to:';
   startDateTitle: string = 'Start Date';
   finishDateTitle: string = 'Finish Date';
 
@@ -124,10 +124,6 @@ export class ChartComponent implements OnInit {
           if (isDevMode()) {
             console.log(this.exchange$);
           }
-          // this.chartData = this.chartDataConvertService.convertData(
-          //   this.exchange$,
-          //   this.requestedCurrency
-          // );
           this.chartData = this.chartDataConvertService.convertData(
             this.exchange$
           );

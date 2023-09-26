@@ -30,7 +30,6 @@ export class LineChartDataManipulationService {
     requestedCurerncies.forEach(singleCurrency => {
       let singleCurrencyData = new NgxLineChartData;
       singleCurrencyData.name = singleCurrency;
-      // chartData.series = new NgxSeriesCollection[];
       data.forEach(element => {
           let entryData = new NgxSeriesCollection;
           entryData.name = element.date.toString();
