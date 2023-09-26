@@ -29,7 +29,7 @@ export class ChartComponent implements OnInit {
   finishDate: Date = new Date();
 
   requestedcurrencyTitle: string = 'Exchange rates of:';
-  baseCurrencyTitle: string = 'Convert to:';
+  baseCurrencyTitle: string = 'Compared to:';
   startDateTitle: string = 'Start Date';
   finishDateTitle: string = 'Finish Date';
 
