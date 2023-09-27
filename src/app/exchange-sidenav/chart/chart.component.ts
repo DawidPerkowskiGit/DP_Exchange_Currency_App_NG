@@ -128,12 +128,12 @@ export class ChartComponent implements OnInit {
             this.exchange$
           );
           this.yAxisLabel = 'Rates based on ' + this.baseCurrency;
-          [this.yScaleMin, this.yScaleMax] =
-            this.findMinAndMaxValueSingleDay(data);
-          [this.yScaleMin, this.yScaleMax] = this.calculateNewMinAndMax(
-            this.yScaleMin,
-            this.yScaleMax
-          );
+          // [this.yScaleMin, this.yScaleMax] =
+          //   this.findMinAndMaxValueSingleDay(data);
+          // [this.yScaleMin, this.yScaleMax] = this.calculateNewMinAndMax(
+          //   this.yScaleMin,
+          //   this.yScaleMax
+          // );
           this.dataIsBeeingFetched = false;
         });
     } else {
@@ -158,13 +158,13 @@ export class ChartComponent implements OnInit {
             // this.requestedCurrency
           );
           this.yAxisLabel = 'Rates based on ' + this.baseCurrency;
-          [this.yScaleMin, this.yScaleMax] = this.findMinAndMaxValue(
-            this.exchange$
-          );
-          [this.yScaleMin, this.yScaleMax] = this.calculateNewMinAndMax(
-            this.yScaleMin,
-            this.yScaleMax
-          );
+          // [this.yScaleMin, this.yScaleMax] = this.findMinAndMaxValue(
+          //   this.exchange$
+          // );
+          // [this.yScaleMin, this.yScaleMax] = this.calculateNewMinAndMax(
+          //   this.yScaleMin,
+          //   this.yScaleMax
+          // );
           this.dataIsBeeingFetched = false;
         });
     }
