@@ -17,7 +17,7 @@ export class DatePickerToStringService {
     if (isDevMode()) {
       console.log('console.log(date.getMonth())', exchangeDate.getMonth());
     }
-    if (exchangeDate.getMonth() < 10) {
+    if (exchangeDate.getMonth() < 9) {
       monthString = '0' + monthString;
     }
 
