@@ -31,7 +31,7 @@ export class LatestComponent implements OnInit, OnChanges {
 
   exchangeDate: Date = new Date();
 
-  currencyPickerTitle: string = 'Target currency';
+  currencyPickerTitle: string = 'Base currency';
 
   constructor(
     private jsonDataImportService: JsonDataImportService,
