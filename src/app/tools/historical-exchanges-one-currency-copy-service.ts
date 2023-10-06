@@ -32,21 +32,4 @@ export class HistoricalExchangesOneCurrencyCopySevice {
     });
     return output;
   }
-
-    /**
-   * Copies subscribed exchange data from a single day and sorts them by exchange date.
-   * @param input Data fetched from subscription
-   * @returns Sorted data in ExchangesObject format
-   */
-
-  copySingleDate(input: ExchangesObject): ExchangesObject[] {
-    let output: ExchangesObject[] = [];
-    let singleObject = new ExchangesObject();
-    singleObject.base = input.base;
-    singleObject.date = input.date;
-    singleObject.success = input.success;
-    singleObject.rates = this.buildMapService.buildMap(input.rates);
-    output.push(singleObject);
-    return output;
-  }
 }

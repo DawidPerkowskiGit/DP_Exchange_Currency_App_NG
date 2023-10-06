@@ -107,36 +107,6 @@ export class ChartComponent implements OnInit {
       this.finishDate
     );
     this.dataIsBeeingFetched = true;
-
-    if (startDate === finishDate) {
-      this.jsonDataImportService
-        .getHistoricalExchangeRatesOfOneCurrencySignleDay(
-          this.baseCurrency,
-          this.requestedCurrency,
-          startDate,
-          finishDate
-        )
-        .subscribe((data) => {
-          if (isDevMode()) {
-            console.log(data);
-          }
-          this.exchange$ = this.copyService.copySingleDate(data);
-          if (isDevMode()) {
-            console.log(this.exchange$);
-          }
-          this.chartData = this.chartDataConvertService.convertData(
-            this.exchange$
-          );
-          this.yAxisLabel = 'Rates based on ' + this.baseCurrency;
-          [this.yScaleMin, this.yScaleMax] =
-            this.findMinAndMaxValueSingleDay(data);
-          // [this.yScaleMin, this.yScaleMax] = this.calculateNewMinAndMax(
-          //   this.yScaleMin,
-          //   this.yScaleMax
-          // );
-          this.dataIsBeeingFetched = false;
-        });
-    } else {
       this.jsonDataImportService
         .getHistoricalExchangeRatesOfOneCurrency(
           this.baseCurrency,
@@ -168,7 +138,6 @@ export class ChartComponent implements OnInit {
           this.dataIsBeeingFetched = false;
         });
     }
-  }
 
   /**
    * Update base currency selected in the dropdown menu
