@@ -6,10 +6,12 @@
 
 ## About application
 
-Single-page currency exchange rates frontend application that interacts with a REST API, connecting to the backend of another application. The app provides data on available currencies and current exchange rates for over 30 currencies. Hosted on Render's free plan. https://dp-exchange-currency-app-ng.onrender.com/
+Frontend live link: https://dp-exchange-currency-app-ng.onrender.com/
 
-Repository of backend application that returns exchange rates in JSON format:
-https://github.com/DawidPerkowskiGit/ExchangeCurrencyApp_DP
+Backend live link: https://exchangecurrencyapp-dp-render.onrender.com
+Backend repository: https://github.com/DawidPerkowskiGit/ExchangeCurrencyApp_DP
+
+Single-page frontend currency exchange rates application that interacts with a REST API, connecting to the backend of another application. The app provides data on available currencies and current exchange rates for over 30 currencies. Hosted on Render's free plan. 
 
 
 ## Technologies
