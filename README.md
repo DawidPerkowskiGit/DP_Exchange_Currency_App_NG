@@ -14,7 +14,7 @@ Backend repository: https://github.com/DawidPerkowskiGit/ExchangeCurrencyApp_DP
 Single-page currency exchange rates frontend application that interacts with a REST API, connecting to the backend of another application. The app provides data on available currencies and current exchange rates for over 30 currencies. Hosted on Render's free plan. 
 
 ## Technologies
-Angular 13, RxJS, Bootstrap, Angular Materials, Docker, REST API.
+Angular 13, TypeScript, HTML, CSS, RxJS, Bootstrap, Angular Materials, Docker, REST API.
 
 
 ## More detailed information about modules
