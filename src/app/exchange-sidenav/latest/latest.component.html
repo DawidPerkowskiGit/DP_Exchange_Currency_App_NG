@@ -4,7 +4,7 @@
   </div>
   <div *ngIf="dataIsBeeingFetched">
     <div class="data-fetch-info container">
-        <app-spinning-wheel></app-spinning-wheel>
+      <app-spinning-wheel></app-spinning-wheel>
     </div>
   </div>
   <div *ngIf="exchange">
@@ -13,14 +13,14 @@
     <div class="row">
       <div class="col-sm-4">
         <app-currency-dropdown-list
-        [date]="exchangeDate"
-        [title]="currencyPickerTitle"
+          [date]="exchangeDate"
+          [title]="currencyPickerTitle"
           (updateBaseCurrency)="updateBaseCurrency($event)"
         ></app-currency-dropdown-list>
       </div>
       <div class="col-sm-4">
         <app-currency-date-picker
-        (updateExchangeDate)="updateExchangeDate($event)"
+          (updateExchangeDate)="updateExchangeDate($event)"
         ></app-currency-date-picker>
       </div>
     </div>

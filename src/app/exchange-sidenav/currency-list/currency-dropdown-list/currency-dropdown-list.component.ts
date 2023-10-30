@@ -62,7 +62,6 @@ export class CurrencyDropdownListComponent implements OnInit {
    */
   selectCurrency(currency: string) {
     this.selectedCurrencyEvent.emit(currency);
-    // this.nextCurrency.next(currency);
     if (isDevMode()) {
       console.log(
         'New currency selected, pushing new currency to subsrcibers',

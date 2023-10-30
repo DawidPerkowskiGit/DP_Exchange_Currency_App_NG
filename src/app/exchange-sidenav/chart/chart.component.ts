@@ -35,7 +35,6 @@ export class ChartComponent implements OnInit {
 
   view: [number, number] = [800, 500];
 
-  // options
   legend: boolean = true;
   showLabels: boolean = true;
   animations: boolean = true;
@@ -107,37 +106,31 @@ export class ChartComponent implements OnInit {
       this.finishDate
     );
     this.dataIsBeeingFetched = true;
-      this.jsonDataImportService
-        .getHistoricalExchangeRatesOfOneCurrency(
-          this.baseCurrency,
-          this.requestedCurrency,
-          startDate,
-          finishDate
-        )
-        .subscribe((data: ExchangesBody) => {
-          if (isDevMode()) {
-            console.log(data);
-          }
-          this.exchange$ = this.copyService.copy(data);
-          // this.exchange$ = data;
-          if (isDevMode()) {
-            console.log(this.exchange$);
-          }
-          this.chartData = this.chartDataConvertService.convertData(
-            this.exchange$
-            // this.requestedCurrency
-          );
-          this.yAxisLabel = 'Rates based on ' + this.baseCurrency;
-          [this.yScaleMin, this.yScaleMax] = this.findMinAndMaxValue(
-            this.exchange$
-          );
-          // [this.yScaleMin, this.yScaleMax] = this.calculateNewMinAndMax(
-          //   this.yScaleMin,
-          //   this.yScaleMax
-          // );
-          this.dataIsBeeingFetched = false;
-        });
-    }
+    this.jsonDataImportService
+      .getHistoricalExchangeRatesOfOneCurrency(
+        this.baseCurrency,
+        this.requestedCurrency,
+        startDate,
+        finishDate
+      )
+      .subscribe((data: ExchangesBody) => {
+        if (isDevMode()) {
+          console.log(data);
+        }
+        this.exchange$ = this.copyService.copy(data);
+        if (isDevMode()) {
+          console.log(this.exchange$);
+        }
+        this.chartData = this.chartDataConvertService.convertData(
+          this.exchange$
+        );
+        this.yAxisLabel = 'Rates based on ' + this.baseCurrency;
+        [this.yScaleMin, this.yScaleMax] = this.findMinAndMaxValue(
+          this.exchange$
+        );
+        this.dataIsBeeingFetched = false;
+      });
+  }
 
   /**
    * Update base currency selected in the dropdown menu
@@ -161,7 +154,6 @@ export class ChartComponent implements OnInit {
     }
 
     this.requestedCurrency = requestedCurrency;
-    // this.requestedCurrency+","+requestedCurrency;
   }
   /**
    * Update exchange start date selected in the calendar

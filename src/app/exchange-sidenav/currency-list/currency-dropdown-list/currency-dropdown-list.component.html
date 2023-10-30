@@ -1,13 +1,19 @@
 <div *ngIf="currencyList">
-<form>
+  <form>
     <mat-form-field>
-      <mat-label>{{title}}</mat-label>
-        <mat-select [(ngModel)]="selectedCurrency"
-        (ngModelChange)="selectCurrency(selectedCurrency)" name="currency">
-          <mat-option *ngFor="let currency of currencyList.currencies" [value]="currency.isoName">
-            {{currency.isoName}}
-          </mat-option>
-        </mat-select>
+      <mat-label>{{ title }}</mat-label>
+      <mat-select
+        [(ngModel)]="selectedCurrency"
+        (ngModelChange)="selectCurrency(selectedCurrency)"
+        name="currency"
+      >
+        <mat-option
+          *ngFor="let currency of currencyList.currencies"
+          [value]="currency.isoName"
+        >
+          {{ currency.isoName }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
-</form>
+  </form>
 </div>

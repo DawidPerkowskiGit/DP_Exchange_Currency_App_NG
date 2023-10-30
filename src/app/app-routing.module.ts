@@ -7,9 +7,8 @@ import { ExchangeSidenavComponent } from './exchange-sidenav/exchange-sidenav.co
 import { HomepageComponent } from './homepage/homepage.component';
 import { FrontPageNavComponent } from './front-page-nav/front-page-nav.component';
 
-
 const routes: Routes = [
-  { path: '', component: HomepageComponent},
+  { path: '', component: HomepageComponent },
   {
     path: 'homepage',
     component: HomepageComponent,
@@ -18,7 +17,6 @@ const routes: Routes = [
     path: 'exchange',
     component: ExchangeSidenavComponent,
   },
-  // { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

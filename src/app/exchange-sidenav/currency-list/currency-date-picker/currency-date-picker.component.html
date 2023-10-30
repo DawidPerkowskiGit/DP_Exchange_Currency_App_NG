@@ -1,17 +1,15 @@
 <form>
-<mat-form-field>
-    <mat-label>{{title}}</mat-label>
-    <!-- <input matInput [matDatepicker]="picker"
-           (dateChange)="changeDate('change', $event)"> -->
-           <input matInput [matDatepicker]="picker" [value]="initialDate"
-           (dateChange)="changeDate('change', $event)">
-    <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+  <mat-form-field>
+    <mat-label>{{ title }}</mat-label>
+
+    <input
+      matInput
+      [matDatepicker]="picker"
+      [value]="initialDate"
+      (dateChange)="changeDate('change', $event)"
+    />
+
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker 
-     #picker>
-    </mat-datepicker>
+    <mat-datepicker #picker> </mat-datepicker>
   </mat-form-field>
-  </form>
-  <!-- <div class="example-events">
-    <div *ngFor="let e of events">{{e}}</div>
-  </div> -->
+</form>
